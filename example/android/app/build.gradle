@@ -82,6 +82,9 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-ultimate-config/android/rnuc.gradle"
+println "main project"
+println project.config.get("APP_NAME")
 
 /**
  * Set this to true to create two separate APKs instead of one:

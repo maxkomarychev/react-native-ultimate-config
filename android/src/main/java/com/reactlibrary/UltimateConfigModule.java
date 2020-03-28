@@ -4,6 +4,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
+import java.util.*;
 
 public class UltimateConfigModule extends ReactContextBaseJavaModule {
 
@@ -19,9 +20,8 @@ public class UltimateConfigModule extends ReactContextBaseJavaModule {
         return "UltimateConfig";
     }
 
-    @ReactMethod
-    public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
-        // TODO: Implement some actually useful functionality
-        callback.invoke("Received numberArgument: " + numberArgument + " stringArgument: " + stringArgument);
+    @Override
+    public Map<String, Object> getConstants() {
+        return ConfigValues.getConstants();
     }
 }

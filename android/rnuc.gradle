@@ -1,0 +1,16 @@
+import java.nio.file.Paths 
+
+def cwd = System.getProperty("user.dir")
+def configPath = Paths.get(cwd, "app", "rnuc.properties");
+def props = new Properties()
+file(configPath).withInputStream { props.load(it)}
+
+android {
+    defaultConfig {
+        project.ext.set("config", props)
+        props.each { prop, val -> 
+            buildConfigField "String", prop, "\"$val\""
+            resValue "string", prop, val
+        }
+    }
+}

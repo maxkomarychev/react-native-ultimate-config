@@ -1,14 +1,14 @@
 #import "UltimateConfig.h"
+#import "ConfigValues.h"
 
 
 @implementation UltimateConfig
 
 RCT_EXPORT_MODULE()
 
-RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
+- (NSDictionary *)constantsToExport
 {
-    // TODO: Implement some actually useful functionality
-    callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);
+    return getValues();
 }
 
 @end

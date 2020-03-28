@@ -1,5 +1,7 @@
 package com.example;
 
+import android.os.Bundle;
+import android.util.Log;
 import com.facebook.react.ReactActivity;
 
 public class MainActivity extends ReactActivity {
@@ -12,4 +14,11 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "example";
   }
+
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    Log.d("onCreate", BuildConfig.APP_NAME);
+  }
+
 }

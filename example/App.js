@@ -11,23 +11,25 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import UltimateConfig from 'react-native-ultimate-config';
+console.log('mm?', UltimateConfig)
 
 export default class App extends Component<{}> {
   state = {
     status: 'starting',
     message: '--'
   };
-  componentDidMount() {
-    UltimateConfig.sampleMethod('Testing', 123, (message) => {
-      this.setState({
-        status: 'native callback received',
-        message
-      });
-    });
-  }
+  // componentDidMount() {
+  //   UltimateConfig.sampleMethod('Testing', 123, (message) => {
+  //     this.setState({
+  //       status: 'native callback received',
+  //       message
+  //     });
+  //   });
+  // }
   render() {
     return (
       <View style={styles.container}>
+        <Text>{JSON.stringify(UltimateConfig)}</Text>
         <Text style={styles.welcome}>☆UltimateConfig example☆</Text>
         <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
         <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
