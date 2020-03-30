@@ -22,9 +22,14 @@ which have different conventions and approaches how to manage environment
 settings. 
 
 react-native-ultimate-config offers a unified way to configure your projects
-and keep configuration data separate from code or project files: api urls, app names, feature flags. Anything you would typically put into environment.
+and keep configuration data separate from code or project files: api urls, 
+app names, feature flags. Anything you would typically put into environment.
 
+Consumption of the environment should be happening with explicit command 
+without too much magic and complex integration steps.
 
 ## Competitors / Credits
 
-This library is greatly inspired by [react-native-config](https://github.com/luggit/react-native-config).
+This library is greatly inspired by 
+[react-native-config](https://github.com/luggit/react-native-config) does not 
+seem to be maintained anymore.
