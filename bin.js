@@ -67,7 +67,7 @@ write_template(
 
 write_template(
     java_template,
-    path.join(lib_root, "android", `src/main/java/com/reactlibrary/${code_file_name}.java`),
+    path.join(lib_root, "android", `src/main/java/com/reactnativeultimateconfig/${code_file_name}.java`),
     env_data
 )
 
