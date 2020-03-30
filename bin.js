@@ -26,7 +26,7 @@ const xcconfig_template = `{{#each @root}}
 const properties_template = xcconfig_template
 
 const java_template = `
-package com.reactlibrary;
+package com.reactnativeultimateconfig;
 import java.util.*;
 
 class ConfigValues {
