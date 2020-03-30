@@ -28,8 +28,8 @@ APP_NAME=example
 
 update info plist and observe app name changed:
 
-![update app name](./assets/ios.info.1.png)
-![update app name](./assets/ios.info.2.png)
+![update app name](./api.assets/ios.info.1.png)
+![update app name](./api.assets/ios.info.2.png)
 
 ### Objective-c
 
