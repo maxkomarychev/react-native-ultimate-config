@@ -13,7 +13,12 @@
     "baseUrl": "https://github.com/maxkomarychev/react-native-ultimate-config"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "ios",
+    "android",
+    "12factor",
+    "env",
+    "environment"
   ],
   "author": {
     "name": "Max Komarychev",
