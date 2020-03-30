@@ -1,5 +1,7 @@
 # react-native-ultimate-config
 
+_Configure all levels of your react-native app with a single file_
+
 This library exposes configuration from env files to all levels of the projects:
 
 1. javascript

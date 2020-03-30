@@ -2,22 +2,22 @@
   "name": "react-native-ultimate-config",
   "title": "React Native Ultimate Config",
   "version": "1.0.0",
-  "description": "TODO",
+  "description": "Configure all levels of your react-native app with a single file",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-ultimate-config.git",
-    "baseUrl": "https://github.com/github_account/react-native-ultimate-config"
+    "url": "git+https://github.com/maxkomarychev/react-native-ultimate-config.git",
+    "baseUrl": "https://github.com/maxkomarychev/react-native-ultimate-config"
   },
   "keywords": [
     "react-native"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+    "name": "Max Komarychev",
+    "email": "maxkomarychev@gmail.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
