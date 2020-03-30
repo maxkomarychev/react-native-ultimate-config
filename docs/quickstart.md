@@ -48,6 +48,7 @@
         1. go to project settings
         1. set `rnuc.config` as root configuration for both "Debug" and "Release"
             ![set](./quickstart.assets/ios.3.png)
+            ![set](./quickstart.assets/ios.4.png)
 
     1. android
 
