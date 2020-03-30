@@ -64,3 +64,10 @@
         apply from: "../../node_modules/react-native/react.gradle"
         apply from: "../../node_modules/react-native-ultimate-config/android/rnuc.gradle"
         ````
+
+1. save changes made to navite projects `.xcodeproj` file and `build.gradle`
+DO NOT COMMMIT `rnuc.*` files.
+
+1. from now on every time you need to switch environment just run 
+`yarn setenv <dotenv file>` and rerun native project with 
+`react-native run-{ios,android}`
