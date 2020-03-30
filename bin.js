@@ -6,7 +6,8 @@ const fs = require('fs')
 const path = require('path')
 const handlebars = require('handlebars')
 
-const objc_header_template = `{{#each @root}}
+const objc_header_template = `// DO NOT COMMIT OR EDIT THIS FILE
+{{#each @root}}
 #define {{@key}} @"{{this}}"
 {{/each}}
 
@@ -18,14 +19,19 @@ static NSDictionary *getValues() {
     };
 }`
 
-const xcconfig_template = `{{#each @root}}
+const xcconfig_template = `// DO NOT COMMIT OR EDIT THIS FILE
+{{#each @root}}
 {{@key}}={{this}}
 {{/each}}
 `
 
-const properties_template = xcconfig_template
+const properties_template = `# DO NOT COMMIT OR EDIT THIS FILE
+{{#each @root}}
+{{@key}}={{this}}
+{{/each}}
+`
 
-const java_template = `
+const java_template = `// DO NOT COMMIT OR EDIT THIS FILE
 package com.reactnativeultimateconfig;
 import java.util.*;
 
