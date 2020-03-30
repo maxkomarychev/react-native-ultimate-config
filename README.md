@@ -6,13 +6,24 @@ This library exposes configuration from env files to all levels of the projects:
 
 1. javascript
 1. native code 
+    - java
+    - objective-c
 1. native build configuration
+    - ios
+        - build settings
+        - infoplist
+    - android
+        - build config
+        - string resources
+        - project.ext
 
 
 ## Table of contents
 
+1. [Mission](#mission)
 1. [Quickstart Guide](./docs/quickstart.md)
 1. [API](./docs/api.md)
+1. [Competitors](#competitors)
 
 
 ## Mission
@@ -28,8 +39,10 @@ app names, feature flags. Anything you would typically put into environment.
 Consumption of the environment should be happening with explicit command 
 without too much magic and complex integration steps.
 
-## Competitors / Credits
+## Competitors
 
-This library is greatly inspired by 
-[react-native-config](https://github.com/luggit/react-native-config) does not 
-seem to be maintained anymore.
+
+| project | comparison |
+|-|-|
+|[react-native-config](https://github.com/luggit/react-native-config) | Allows configuring native and javascript but project seems to be abandoned.|
+|[react-native-dotenv](https://github.com/zetachang/react-native-dotenv) | Javascript only. Does not allow configure native counterpart of the app.|
