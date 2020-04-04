@@ -8,7 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "postinstall": "node ../scripts/examples_postinstall.js"
+    "postinstall": "node ../scripts/examples_postinstall.js",
+    "setenv": "./node_modules/react-native-ultimate-config/bin.js"
   },
   "dependencies": {
     "react": "16.11.0",

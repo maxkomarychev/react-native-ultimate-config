@@ -53,7 +53,10 @@ const lib_root = path.join(cwd, "node_modules","react-native-ultimate-config")
 
 function write_template(template_string, output_path, data) {
     const parsed_template = handlebars.compile(template_string)
-    fs.writeFileSync(output_path, parsed_template(data))
+    const rendered = parsed_template(data)
+    console.log("WRITING FILE", output_path)
+    console.log(rendered)
+    fs.writeFileSync(output_path, rendered)
 }
 
 const code_file_name = "ConfigValues"
