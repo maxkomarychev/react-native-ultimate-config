@@ -32,9 +32,29 @@ React-Native brings together 3 platforms: ios, android, javascript each of
 which have different conventions and approaches how to manage environment
 settings. 
 
-react-native-ultimate-config offers a unified way to configure your projects
-and keep configuration data separate from code or project files: api urls, 
-app names, feature flags. Anything you would typically put into environment.
+
+```
+|-------------------------------------------------------|
+|                                                       |
+|                     javascript                        |
+|                                                       |
+|-------------------------------------------------------|
+|                          |                            |
+|       objective-c        |           java             |
+|                          |                            |
+|-------------------------------------------------------|
+|                          |                            |
+|      xcode project       |     AndroidManifest.xml    |
+|                          |        build.gradle        |
+|                          |                            |
+|-------------------------------------------------------|
+```
+
+react-native-ultimate-config offers a way to configure your projects on all 
+levels and keep configuration data separate from code or project files: 
+api urls, app names, feature flags. 
+Anything you would typically put into environment can now be loaded from a 
+separate file.
 
 Consumption of the environment should be happening with explicit command 
 without too much magic and complex integration steps.
