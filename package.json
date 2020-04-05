@@ -5,7 +5,7 @@
   "description": "Configure all levels of your react-native app with a single file",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -32,12 +32,13 @@
     "react-native": ">=0.60.0-rc.0 <1.0.x"
   },
   "devDependencies": {
+    "jest": "^25.2.7",
     "react": "^16.9.0",
     "react-native": "^0.61.5"
   },
   "dependencies": {
-    "yargs": "^15.3.1",
+    "dotenv": "^8.2.0",
     "handlebars": "^4.7.3",
-    "dotenv": "^8.2.0"
+    "yargs": "^15.3.1"
   }
 }
