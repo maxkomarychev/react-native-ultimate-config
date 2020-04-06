@@ -16,13 +16,24 @@ jobs:
       - name: pods (ios only)
         working-directory: example/ios
         run: pod install
+      - name: print file
+        working-directory: example
+        run: cat node_modules/react-native-ultimate-config/ios/ConfigValues.h
+      - name: install detox stuff
+        run: |
+          brew tap wix/brew
+          brew install applesimutils
+          npm install -g detox
       - name: build
-        working-directory: example/ios
-        run: xcodebuild -workspace example.xcworkspace -scheme example -sdk iphonesimulator13.2 -derivedDataPath build build
+        working-directory: example
+        run: detox build --configuration ios.sim.release
       - name: Test if config has been injected
         working-directory: example/ios
         run: |
-          /usr/libexec/PlistBuddy -c "Print :CFBundleDisplayName" build/Build/Products/Debug-iphonesimulator/example.app/Info.plist 2>/dev/null | grep 'RNUC Demo'
+          /usr/libexec/PlistBuddy -c "Print :CFBundleDisplayName" build/Build/Products/Release-iphonesimulator/example.app/Info.plist 2>/dev/null | grep 'RNUC Demo'
+      - name: e2e test
+        working-directory: example
+        run: detox test --configuration ios.sim.release
 
 
   test-android-config:

@@ -30,6 +30,7 @@ export default class App extends Component<{}> {
     return (
       <View style={styles.container}>
         <Text>{JSON.stringify(UltimateConfig)}</Text>
+        <Text testID="my_value">{UltimateConfig.MY_VALUE}</Text>
         <Text style={styles.welcome}>☆UltimateConfig example☆</Text>
         <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
         <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
