@@ -22,18 +22,10 @@
 
 1. Generate files
 
-    Create script for executable in your `package.json`
-
-    ```json
-    "scripts": {
-        "setenv": "./node_modules/react-native-ultimate-config/bin.js"
-    }
-    ```
-
     generate env files for navite projects
 
     ```bash
-    yarn setenv .env
+    yarn rnuc .env
     ```
 
 1. Configure navite projects

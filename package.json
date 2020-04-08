@@ -7,6 +7,9 @@
   "scripts": {
     "test": "jest"
   },
+  "bin": {
+    "rnuc": "./bin.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maxkomarychev/react-native-ultimate-config.git",
