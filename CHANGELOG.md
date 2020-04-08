@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.0.3...v1.1.0) (2020-04-08)
+
+
+### Features
+
+* expose bin as executable ([b93ed0c](https://github.com/maxkomarychev/react-native-ultimate-config/commit/b93ed0c5f01c4c4819c70320b3ff3fe969650935))
+
 ### [1.0.3](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.0.2...v1.0.3) (2020-04-04)
 
 ### [1.0.2](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.0.1...v1.0.2) (2020-03-30)
