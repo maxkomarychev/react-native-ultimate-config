@@ -35,13 +35,13 @@
     "react-native": ">=0.60.0-rc.0 <1.0.x"
   },
   "devDependencies": {
-    "jest": "^25.2.7",
+    "jest": "^25.3.0",
     "react": "^16.9.0",
     "react-native": "^0.61.5"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "handlebars": "^4.7.3",
+    "handlebars": "^4.7.6",
     "yargs": "^15.3.1"
   }
 }
