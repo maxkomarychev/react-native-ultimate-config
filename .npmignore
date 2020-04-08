@@ -1,3 +1,10 @@
 example
 docs
 .git*
+.idea
+.gradle
+__tests__
+jest.config.js
+*.iml
+scripts/examples_postinstall.js
+local.properties
