@@ -28,6 +28,15 @@ class ConfigValues {
     return constants;
   }
 }
+`,
+    "node_modules/react-native-ultimate-config/index.d.ts": `// DO NOT COMMIT OR EDIT THIS FILE
+declare module 'react-native-ultimate-config' {
+    export interface ConfigVariables {
+        MY_VARIABLE: string
+    }
+
+    export default ConfigVariables;
+}
 `
 }
 

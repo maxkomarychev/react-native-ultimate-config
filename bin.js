@@ -6,7 +6,9 @@ const fs = require('fs')
 const path = require('path')
 const handlebars = require('handlebars')
 
-const objc_header_template = `// DO NOT COMMIT OR EDIT THIS FILE
+const warning_text = 'DO NOT COMMIT OR EDIT THIS FILE'
+
+const objc_header_template = `// ${warning_text}
 {{#each @root}}
 #define {{@key}} @"{{this}}"
 {{/each}}
@@ -19,19 +21,19 @@ static NSDictionary *getValues() {
     };
 }`
 
-const xcconfig_template = `// DO NOT COMMIT OR EDIT THIS FILE
+const xcconfig_template = `// ${warning_text}
 {{#each @root}}
 {{@key}}={{this}}
 {{/each}}
 `
 
-const properties_template = `# DO NOT COMMIT OR EDIT THIS FILE
+const properties_template = `# ${warning_text}
 {{#each @root}}
 {{@key}}={{this}}
 {{/each}}
 `
 
-const java_template = `// DO NOT COMMIT OR EDIT THIS FILE
+const java_template = `// ${warning_text}
 package com.reactnativeultimateconfig;
 import java.util.*;
 
@@ -46,10 +48,22 @@ class ConfigValues {
 }
 `
 
+const index_d_ts_template = `// ${warning_text}
+declare module 'react-native-ultimate-config' {
+    export interface ConfigVariables {
+{{#each @root}}
+        {{@key}}: string
+{{/each}}
+    }
+
+    export default ConfigVariables;
+}
+`
+
 const env_file = yargs.argv._[0]
 const env_data = dotenv.parse(fs.readFileSync(env_file))
-const cwd = process.cwd()
-const lib_root = path.join(cwd, "node_modules","react-native-ultimate-config")
+const project_root = process.cwd()
+const lib_root = path.join(project_root, "node_modules","react-native-ultimate-config")
 
 function write_template(template_string, output_path, data) {
     const parsed_template = handlebars.compile(template_string)
@@ -70,7 +84,7 @@ write_template(
 
 write_template(
     xcconfig_template,
-    path.join(process.cwd(), "ios", `${config_file_name}.xcconfig`),
+    path.join(project_root, "ios", `${config_file_name}.xcconfig`),
     env_data
 )
 
@@ -82,6 +96,12 @@ write_template(
 
 write_template(
     properties_template,
-    path.join(process.cwd(), `android/app/${config_file_name}.properties`),
+    path.join(project_root, `android/app/${config_file_name}.properties`),
+    env_data
+)
+
+write_template(
+    index_d_ts_template,
+    path.join(lib_root, "index.d.ts"),
     env_data
 )

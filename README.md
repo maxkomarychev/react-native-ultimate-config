@@ -7,8 +7,8 @@ _Configure all levels of your react-native app with a single file_
 1. [Mission](#mission)
 1. [Quickstart Guide](./docs/quickstart.md)
 1. [API](./docs/api.md)
+1. [TypeScript Support](#typescript-support)
 1. [Competitors](#competitors)
-
 
 
 ## Mission
@@ -58,6 +58,11 @@ separate file.
 
 Consumption of the environment should be happening with explicit command 
 without too much magic and complex integration steps.
+
+
+## TypeScript Support
+
+`index.d.ts` is generated dynamically according to variables defined in envfile
 
 ## Competitors
 
