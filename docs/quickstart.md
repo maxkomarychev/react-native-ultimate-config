@@ -28,7 +28,7 @@
     yarn rnuc .env
     ```
 
-1. Configure navite projects
+1. Configure navite projects (one time setup)
 
     1. ios
 
@@ -57,9 +57,9 @@
         apply from: "../../node_modules/react-native-ultimate-config/android/rnuc.gradle"
         ````
 
-1. save changes made to navite projects `.xcodeproj` file and `build.gradle`
-DO NOT COMMMIT `rnuc.*` files.
+    1. save changes made to navite projects `.xcodeproj` file and `build.gradle`
+    DO NOT COMMMIT `rnuc.*` files.
 
 1. from now on every time you need to switch environment just run 
-`yarn setenv <dotenv file>` and rerun native project with 
+`yarn rnuc <dotenv file>` and rerun native project with 
 `react-native run-{ios,android}`

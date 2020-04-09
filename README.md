@@ -2,8 +2,23 @@
 
 _Configure all levels of your react-native app with a single file_
 
-This library exposes configuration from env files to all levels of the projects:
+## Table of contents
 
+1. [Mission](#mission)
+1. [Quickstart Guide](./docs/quickstart.md)
+1. [API](./docs/api.md)
+1. [Competitors](#competitors)
+
+
+
+## Mission
+
+React-Native brings together 3 platforms: ios, android, javascript each of
+which have different conventions and approaches how to manage environment
+settings. 
+
+react-native-ultimate-config exposes configuration from env files to all 
+levels of the projects:
 1. javascript
 1. native code 
     - java
@@ -18,21 +33,6 @@ This library exposes configuration from env files to all levels of the projects:
         - project.ext
 
 
-## Table of contents
-
-1. [Mission](#mission)
-1. [Quickstart Guide](./docs/quickstart.md)
-1. [API](./docs/api.md)
-1. [Competitors](#competitors)
-
-
-## Mission
-
-React-Native brings together 3 platforms: ios, android, javascript each of
-which have different conventions and approaches how to manage environment
-settings. 
-
-
 ```
 |-------------------------------------------------------|
 |                                                       |
@@ -44,8 +44,8 @@ settings.
 |                          |                            |
 |-------------------------------------------------------|
 |                          |                            |
-|      xcode project       |     AndroidManifest.xml    |
-|                          |        build.gradle        |
+|      build settings      |     AndroidManifest.xml    |
+|         infoplist        |        build.gradle        |
 |                          |                            |
 |-------------------------------------------------------|
 ```
