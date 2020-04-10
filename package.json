@@ -1,7 +1,7 @@
 {
   "name": "react-native-ultimate-config",
   "title": "React Native Ultimate Config",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Configure all levels of your react-native app with a single file",
   "main": "index.js",
   "scripts": {
