@@ -7,7 +7,7 @@ _The ultimate config you ever need for your react-native app_
 1. install: `yarn add react-native-ultimate-config`
 2. [one time setup for native projects](./docs/quickstart.md)
 3. initialize env `yarn rnuc .env`
-4. build! `react-native run-{ios,android}
+4. build! `react-native run-{ios,android}`
 
 
 ## Table of contents
