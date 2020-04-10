@@ -1,14 +1,33 @@
 # react-native-ultimate-config
 
-_Configure all levels of your react-native app with a single file_
+_The ultimate config you ever need for your react-native app_
+
+## TL;DR usage
+
+1. install: `yarn add react-native-ultimate-config`
+2. [one time setup for native projects](./docs/quickstart.md)
+3. initialize env `yarn rnuc .env`
+4. build! `react-native run-{ios,android}
+
 
 ## Table of contents
 
+1. [Features](#features)
 1. [Mission](#mission)
 1. [Quickstart Guide](./docs/quickstart.md)
 1. [API](./docs/api.md)
 1. [TypeScript Support](#typescript-support)
 1. [Competitors](#competitors)
+
+
+## Features
+
+1. Access from javascript
+1. Access from native code: java and objective-c
+1. Access in build tools: xcode and gradle
+1. Unit tested
+1. e2e tested
+1. Provides typescript typings
 
 
 ## Mission
@@ -56,9 +75,8 @@ api urls, app names, feature flags.
 Anything you would typically put into environment can now be loaded from a 
 separate file.
 
-Consumption of the environment should be happening with explicit command 
-without too much magic and complex integration steps.
-
+After trivial one-time setup of native projects exposing environment to the
+app happens with a single command.
 
 ## TypeScript Support
 
