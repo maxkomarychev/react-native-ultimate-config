@@ -10,7 +10,7 @@ const warning_text = 'DO NOT COMMIT OR EDIT THIS FILE'
 
 const objc_header_template = `// ${warning_text}
 {{#each @root}}
-#define {{@key}} @"{{this}}"
+#define {{@key}} @"{{{this}}}"
 {{/each}}
 
 static NSDictionary *getValues() {
@@ -23,13 +23,13 @@ static NSDictionary *getValues() {
 
 const xcconfig_template = `// ${warning_text}
 {{#each @root}}
-{{@key}}={{this}}
+{{@key}}={{{this}}}
 {{/each}}
 `
 
 const properties_template = `# ${warning_text}
 {{#each @root}}
-{{@key}}={{this}}
+{{@key}}={{{this}}}
 {{/each}}
 `
 
@@ -41,7 +41,7 @@ class ConfigValues {
   public static Map<String, Object> getConstants() {
     final Map<String, Object> constants = new HashMap<>();
 {{#each @root}}
-    constants.put("{{@key}}", "{{this}}");
+    constants.put("{{@key}}", "{{{this}}}");
 {{/each}}
     return constants;
   }
