@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.3](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.2.2...v1.2.3) (2020-04-11)
+
+
+### Bug Fixes
+
+* do not escape values in templates ([8c53789](https://github.com/maxkomarychev/react-native-ultimate-config/commit/8c53789df5b7093b8cf0a361958dcacaf9bee753))
+* update typescript definitions ([b42288d](https://github.com/maxkomarychev/react-native-ultimate-config/commit/b42288dcac924235f5ad06541f2a741029f1d351))
+
 ### [1.2.2](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.2.1...v1.2.2) (2020-04-10)
 
 ### [1.2.1](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.2.0...v1.2.1) (2020-04-10)
