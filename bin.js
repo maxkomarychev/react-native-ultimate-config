@@ -49,15 +49,15 @@ class ConfigValues {
 `
 
 const index_d_ts_template = `// ${warning_text}
-declare module 'react-native-ultimate-config' {
-    export interface ConfigVariables {
+export interface ConfigVariables {
 {{#each @root}}
-        {{@key}}: string
+    {{@key}}: string
 {{/each}}
-    }
-
-    export default ConfigVariables;
 }
+
+declare const UltimateConfig: ConfigVariables
+
+export default UltimateConfig
 `
 
 const env_file = yargs.argv._[0]

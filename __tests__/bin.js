@@ -39,14 +39,14 @@ class ConfigValues {
 }
 `,
     "node_modules/react-native-ultimate-config/index.d.ts": `// DO NOT COMMIT OR EDIT THIS FILE
-declare module 'react-native-ultimate-config' {
-    export interface ConfigVariables {
-        MY_VARIABLE: string
-        MY_URL: string
-    }
-
-    export default ConfigVariables;
+export interface ConfigVariables {
+    MY_VARIABLE: string
+    MY_URL: string
 }
+
+declare const UltimateConfig: ConfigVariables
+
+export default UltimateConfig
 `
 }
 
