@@ -8,3 +8,4 @@ jest.config.js
 *.iml
 scripts/examples_postinstall.js
 local.properties
+.versionrc
