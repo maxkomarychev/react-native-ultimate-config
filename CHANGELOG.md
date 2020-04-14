@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.4](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.2.3...v1.2.4) (2020-04-14)
+
+
+* provide commands for `npm`, misc changes ([1ea6402](https://github.com/maxkomarychev/react-native-ultimate-config/commit/1ea6402a68557812aa366582ff9a7d7eedc6c40d))
+* update config for changelog ([844baa2](https://github.com/maxkomarychev/react-native-ultimate-config/commit/844baa24d0e3891a0409aaccb781203e0a94a451))
+
 ### [1.2.3](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.2.2...v1.2.3) (2020-04-11)
 
 
