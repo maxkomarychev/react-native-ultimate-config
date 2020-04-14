@@ -4,9 +4,15 @@ _The ultimate config you ever need for your react-native app_
 
 ## TL;DR usage
 
-1. install: `yarn add react-native-ultimate-config`
-2. [one time setup for native projects](./docs/quickstart.md)
-3. initialize env `yarn rnuc .env`
+1. install
+    |npm | yarn |
+    |-|-|
+    |`npm install react-native-ultimate-config` | `yarn add react-native-ultimate-config`|
+2. [one-off setup for native projects](./docs/quickstart.md)
+3. initialize env
+    |npm | yarn |
+    |-|-|
+    |`npm run rnuc <env file>`|`yarn rnuc <env file>`|
 4. build! `react-native run-{ios,android}`
 
 
@@ -17,7 +23,7 @@ _The ultimate config you ever need for your react-native app_
 1. [Quickstart Guide](./docs/quickstart.md)
 1. [API](./docs/api.md)
 1. [TypeScript Support](#typescript-support)
-1. [Competitors](#competitors)
+1. [Alternatives](#alternatives)
 
 
 ## Features
@@ -82,10 +88,9 @@ app happens with a single command.
 
 `index.d.ts` is generated dynamically according to variables defined in envfile
 
-## Competitors
-
+## Alternatives
 
 | project | comparison |
 |-|-|
-|[react-native-config](https://github.com/luggit/react-native-config) | Allows configuring native and javascript but project seems to be abandoned.|
-|[react-native-dotenv](https://github.com/zetachang/react-native-dotenv) | Javascript only. Does not allow configure native counterpart of the app.|
+|[react-native-dotenv](https://github.com/zetachang/react-native-dotenv) | Javascript only. Does not allow to configure native counterpart of the app|
+|[react-native-config](https://github.com/luggit/react-native-config) | Allows configuring native and javascript|

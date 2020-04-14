@@ -2,7 +2,9 @@
 
 1. Add dependency
 
-    `yarn add react-native-ultimate-config`
+    |npm | yarn |
+    |-|-|
+    |`npm install react-native-ultimate-config` | `yarn add react-native-ultimate-config`|
 
 1. Create example file
 
@@ -20,15 +22,21 @@
     rnuc.properties
     ```
 
+1. **ONLY FOR NPM. SKIP IF USING YARN**
+
+    create script in "package.json"
+    ```json
+    "rnuc": "$(npm bin)/rnuc"
+    ```
 1. Generate files
 
     generate env files for navite projects
 
-    ```bash
-    yarn rnuc .env
-    ```
+    |npm |yarn|
+    |-|-|
+    |`npm run rnuc .env`| `yarn rnuc .env` |
 
-1. Configure navite projects (one time setup)
+1. Configure navite projects (one-off setup)
 
     1. ios
 
@@ -57,9 +65,9 @@
         apply from: "../../node_modules/react-native-ultimate-config/android/rnuc.gradle"
         ````
 
-    1. save changes made to navite projects `.xcodeproj` file and `build.gradle`
-    DO NOT COMMMIT `rnuc.*` files.
+    1. save changes made to navite projects `.xcodeproj` file and `build.gradle`.
+    **DO NOT COMMMIT** `rnuc.*` files.
 
 1. from now on every time you need to switch environment just run 
-`yarn rnuc <dotenv file>` and rerun native project with 
+`npm run rnuc <dotenv file>` or `yarn rnuc <dotenv file>` and rerun native project with 
 `react-native run-{ios,android}`
