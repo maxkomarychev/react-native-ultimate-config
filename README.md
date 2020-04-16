@@ -2,6 +2,8 @@
 
 _The ultimate config you ever need for your react-native app_
 
+_Project generated with https://github.com/brodybits/create-react-native-module_
+
 ## TL;DR usage
 
 1. install
