@@ -9,3 +9,5 @@ jest.config.js
 scripts/examples_postinstall.js
 local.properties
 .versionrc
+android/build
+index.d.ts
