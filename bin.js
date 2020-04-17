@@ -60,10 +60,12 @@ declare const UltimateConfig: ConfigVariables
 export default UltimateConfig
 `
 
+yargs.default("projectRoot", process.cwd())
+const project_root = yargs.argv.projectRoot
+yargs.default("libRoot", path.join(project_root, "node_modules","react-native-ultimate-config"))
+const lib_root = yargs.argv.libRoot
 const env_file = yargs.argv._[0]
 const env_data = dotenv.parse(fs.readFileSync(env_file))
-const project_root = process.cwd()
-const lib_root = path.join(project_root, "node_modules","react-native-ultimate-config")
 
 function write_template(template_string, output_path, data) {
     const parsed_template = handlebars.compile(template_string)

@@ -26,7 +26,7 @@ _Project generated with https://github.com/brodybits/create-react-native-module_
 1. [API](./docs/api.md)
 1. [TypeScript Support](#typescript-support)
 1. [Alternatives](#alternatives)
-
+1. [Developing](#developing)
 
 ## Features
 
@@ -96,3 +96,25 @@ app happens with a single command.
 |-|-|
 |[react-native-dotenv](https://github.com/zetachang/react-native-dotenv) | Javascript only. Does not allow to configure native counterpart of the app|
 |[react-native-config](https://github.com/luggit/react-native-config) | Allows configuring native and javascript|
+
+## Developing
+
+### Misc
+
+Files
+
+```
+android/src/main/java/com/reactnativeultimateconfig/ConfigValues.java
+ios/ConfigValues.h
+```
+
+are updated with every `rnuc` execution, yet they have to exist in the repo.
+
+In order to avoid committing them accidentally run
+
+```bash
+git update-index --assume-unchanged android/src/main/java/com/reactnativeultimateconfig/ConfigValues.java ios/ConfigValues.h
+```
+
+When changing them turn the flag off, update, commit, turn flag back on.
+More details: https://git-scm.com/docs/git-update-index#_using_assume_unchanged_bit

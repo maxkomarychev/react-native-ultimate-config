@@ -7,7 +7,9 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: install dependencies
+      - name: install dependencies - lib
+        run: yarn
+      - name: install dependencies - example
         working-directory: example
         run: yarn
       - name: init env
@@ -16,9 +18,9 @@ jobs:
       - name: pods (ios only)
         working-directory: example/ios
         run: pod install
-      - name: print file
-        working-directory: example
-        run: cat node_modules/react-native-ultimate-config/ios/ConfigValues.h
+      # - name: print file
+      #   working-directory: example
+      #   run: cat node_modules/react-native-ultimate-config/ios/ConfigValues.h
       - name: install detox stuff
         run: |
           brew tap wix/brew
@@ -40,7 +42,9 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: install dependencies
+      - name: install dependencies - lib
+        run: yarn
+      - name: install dependencies - example
         run: |
           yarn
           cd android

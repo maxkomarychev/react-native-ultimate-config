@@ -40,3 +40,6 @@ local.properties
 buck-out/
 \.buckd/
 *.keystore
+
+# Codegen
+index.d.ts

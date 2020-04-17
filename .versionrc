@@ -4,5 +4,6 @@
     {"type":"fix","section":"Bug Fixes"},
     {"type":"test","section":"Tests"},
     {"type":"docs","section": "Docs"}
+    {"type":"refactor","section": "Refactor"}
   ]
 }
