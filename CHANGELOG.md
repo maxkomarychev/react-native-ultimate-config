@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.6](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.2.5...v1.2.6) (2020-04-17)
+
+
+### Refactor
+
+* do not install lib as a dependency ([c4ef4b5](https://github.com/maxkomarychev/react-native-ultimate-config/commit/c4ef4b5069b1c8b49c43aecfff56c1d72b01b211))
+
+
+### Tests
+
+* improve testing infra, split unit tests ([21ed16d](https://github.com/maxkomarychev/react-native-ultimate-config/commit/21ed16d9daae378cbd2e2f026377cc27508faa6b))
+
+
+### Docs
+
+* credit to creat-react-native-module ([d650efa](https://github.com/maxkomarychev/react-native-ultimate-config/commit/d650efaac1a0fb8f1c4d9da097b891d22b4809cf))
+* fix typo in .versionrc ([0e61253](https://github.com/maxkomarychev/react-native-ultimate-config/commit/0e61253ee51732471833c06673599168aaf342f9))
+* fix versionrc ([79723de](https://github.com/maxkomarychev/react-native-ultimate-config/commit/79723def7013301301531ecbe7615e79d216d920))
+
 ### [1.2.5](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.2.4...v1.2.5) (2020-04-14)
 
 ### [1.2.4](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.2.3...v1.2.4) (2020-04-14)
