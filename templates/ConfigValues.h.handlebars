@@ -1,0 +1,12 @@
+// DO NOT COMMIT OR EDIT THIS FILE
+{{#each @root}}
+#define {{@key}} @"{{{this}}}"
+{{/each}}
+
+static NSDictionary *getValues() {
+    return @{
+        {{#each @root}}
+        @"{{@key}}": {{@key}},
+        {{/each}}
+    };
+}

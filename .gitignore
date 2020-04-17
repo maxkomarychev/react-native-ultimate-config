@@ -42,4 +42,4 @@ buck-out/
 *.keystore
 
 # Codegen
-index.d.ts
+/index.d.ts

@@ -8,7 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "setenv": "../bin.js --project-root . --lib-root .."
+    "rnuc": "../bin.js --project-root . --lib-root .."
   },
   "dependencies": {
     "react": "16.11.0",

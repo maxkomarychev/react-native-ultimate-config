@@ -1,0 +1,10 @@
+// DO NOT COMMIT OR EDIT THIS FILE
+export interface ConfigVariables {
+{{#each @root}}
+  {{@key}}: string;
+{{/each}}
+}
+
+declare const UltimateConfig: ConfigVariables;
+
+export default UltimateConfig;
