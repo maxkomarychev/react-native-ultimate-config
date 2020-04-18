@@ -1,27 +1,54 @@
 # API
 
+Table of contents
+
+1. [Files](#files)
+1. [CLI](#cli)
+1. [Javascript](#javascript)
+1. [ios](#ios)
+   1. [Info.plist](#infoplist)
+   1. [Objective-C](#objective-c)
+1. [Android](#android)
+   1. [build.gradle](#buildgradle)
+   1. [AndroidManifest.xml](#androidmanifestxml)
+   1. [Java](#java)
+1. [Note about types](#note-about-types)
+
+## Files
+
+Environment data can be read from both dotenv and yaml files. Latter are automaticlaly detected by CLI based on extension: `.yaml` or `.yml`.
+
+## CLI
+
+Inject environment data with a single command:
+
+| npm                  | yarn             |
+| -------------------- | ---------------- |
+| `npm yarn rnuc .env` | `yarn rnuc .env` |
+
 ## Javascript
 
-```javascript
+Get your values in javascript!
 
+```javascript
 // import module
-import config from 'react-native-ultimate-config'
+import config from "react-native-ultimate-config";
 
 // access variables
-config.MY_CONFIG
+config.MY_CONFIG;
 ```
 
 ## ios
 
-
 ### Info.plist
 
-All values from env file are exposed to Build Settings and therefore 
+All values from env file are exposed to Build Settings and therefore
 automatically available in info plist.
 
 Example: set app name from config
 
 env file:
+
 ```env
 APP_NAME=example
 ```
@@ -49,7 +76,7 @@ Gradle plugin of a library injects environment variables into as:
 
 ### build.gradle
 
-you can access config variales with simple 
+you can access config variales with simple
 
 ```gradle
 project.config.get("APP_NAME")
@@ -100,3 +127,16 @@ public class MainActivity extends ReactActivity {
 }
 
 ```
+
+## Note about types
+
+If yaml file is used for configuration then it is possible to pick up types of variables, however not every place can deal with all types or deal with types at all. Please consult with the following table to know what's available:
+
+| place               | types available | notes                                                                                                                                                                                    |
+| ------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| javascript          | yes             | -                                                                                                                                                                                        |
+| infoplist           | no              | -                                                                                                                                                                                        |
+| objective-c         | yes             | -                                                                                                                                                                                        |
+| build.gradle        | yes             | -                                                                                                                                                                                        |
+| AndroidManifest.xml | yes\*           | floating point values are available as `@string` resources since there are no such type available in resources: https://developer.android.com/guide/topics/resources/available-resources |
+| Java                | yes             | -                                                                                                                                                                                        |

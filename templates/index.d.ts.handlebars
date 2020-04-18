@@ -1,7 +1,15 @@
 // DO NOT COMMIT OR EDIT THIS FILE
 export interface ConfigVariables {
 {{#each @root}}
+{{#if this.isString}}
   {{@key}}: string;
+{{/if}}
+{{#if this.isBoolean}}
+  {{@key}}: boolean;
+{{/if}}
+{{#if this.isNumber}}
+  {{@key}}: number;
+{{/if}}
 {{/each}}
 }
 

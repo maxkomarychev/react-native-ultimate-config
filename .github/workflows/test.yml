@@ -14,7 +14,7 @@ jobs:
         run: yarn
       - name: init env
         working-directory: example
-        run: yarn rnuc .env
+        run: yarn rnuc .env.yaml
       - name: pods (ios only)
         working-directory: example/ios
         run: pod install
@@ -47,14 +47,22 @@ jobs:
         run: |
           yarn
           cd android
-          yarn rnuc .env
+          yarn rnuc .env.yaml
           ./gradlew assembleDebug
         working-directory: example
       - name: Test if config has been injected
         run: |
           grep 'public static final String APP_NAME = "RNUC Demo"' android/app/build/generated/source/buildConfig/debug/com/example/BuildConfig.java
+          grep 'public static final String STRING_VALUE = "hello"' android/app/build/generated/source/buildConfig/debug/com/example/BuildConfig.java
+          grep 'public static final boolean BOOLEAN_VALUE = false' android/app/build/generated/source/buildConfig/debug/com/example/BuildConfig.java
+          grep 'public static final int NUMBER_VALUE = 42' android/app/build/generated/source/buildConfig/debug/com/example/BuildConfig.java
+
           xmllint --xpath '//resources/string[@name="APP_NAME"]'  android/app/build/generated/res/resValues/debug/values/gradleResValues.xml | grep "RNUC Demo"
+
           grep APP_NAME android/app/build/generated/not_namespaced_r_class_sources/debug/r/com/example/R.java
+          grep STRING_VALUE android/app/build/generated/not_namespaced_r_class_sources/debug/r/com/example/R.java
+          grep BOOLEAN_VALUE android/app/build/generated/not_namespaced_r_class_sources/debug/r/com/example/R.java
+          grep NUMBER_VALUE android/app/build/generated/not_namespaced_r_class_sources/debug/r/com/example/R.java
         working-directory: example
 
   unittest:

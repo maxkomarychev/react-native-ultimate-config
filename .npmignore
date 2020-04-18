@@ -11,3 +11,4 @@ local.properties
 .versionrc
 android/build
 index.d.ts
+coverage

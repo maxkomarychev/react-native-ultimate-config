@@ -6,7 +6,19 @@ class ConfigValues {
   public static Map<String, Object> getConstants() {
     final Map<String, Object> constants = new HashMap<>();
 {{#each @root}}
-    constants.put("{{@key}}", "{{{this}}}");
+{{#if this.isString}}
+    constants.put("{{@key}}", "{{{this.value}}}");
+{{/if}}
+{{#if this.isBoolean}}
+    constants.put("{{@key}}", new Boolean({{{this.value}}}));
+{{/if}}
+{{#if this.isNumber}}
+{{#if isInteger}}
+    constants.put("{{@key}}", new Integer({{{this.value}}}));
+{{else}}
+    constants.put("{{@key}}", new Double({{{this.value}}}));
+{{/if}}
+{{/if}}
 {{/each}}
     return constants;
   }

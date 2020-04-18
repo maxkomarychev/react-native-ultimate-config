@@ -29,15 +29,15 @@ function render_env(project_root, lib_root, env) {
       "android",
       `src/main/java/com/reactnativeultimateconfig/${code_file_name}.java`
     )]: render_template("ConfigValues.java", env),
+    [path.join(lib_root, "android", `rnuc.gradle`)]: render_template(
+      "rnuc.gradle",
+      env
+    ),
     [path.join(
       project_root,
       "ios",
       `${config_file_name}.xcconfig`
     )]: render_template("rnuc.xcconfig", env),
-    [path.join(
-      project_root,
-      `android/app/${config_file_name}.properties`
-    )]: render_template("rnuc.properties", env),
   };
   return map;
 }

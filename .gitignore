@@ -43,3 +43,6 @@ buck-out/
 
 # Codegen
 /index.d.ts
+
+# Jest
+coverage

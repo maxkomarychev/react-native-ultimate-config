@@ -2,7 +2,7 @@
   "name": "react-native-ultimate-config",
   "title": "React Native Ultimate Config",
   "version": "1.2.7",
-  "description": "Configure all levels of your react-native app with a single file",
+  "description": "The ultimate config you ever need for your react-native app",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -42,6 +42,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "handlebars": "^4.7.6",
+    "js-yaml": "^3.13.1",
     "yargs": "^15.3.1"
   }
 }

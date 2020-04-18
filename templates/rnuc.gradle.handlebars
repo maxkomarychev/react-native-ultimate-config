@@ -1,0 +1,37 @@
+// DO NOT COMMIT OR EDIT THIS FILE
+import java.nio.file.Paths 
+
+android {
+    defaultConfig {
+        def config = [
+{{#each @root}}
+{{#if this.isString}}
+            "{{@key}}": "{{{this.value}}}",
+{{else}}
+            "{{@key}}": {{{this.value}}},
+{{/if}}
+{{/each}}
+        ]
+        project.ext.set("config", config)
+{{#each @root}}
+{{#if this.isString}}
+        buildConfigField "String", "{{@key}}", "\"{{{this.value}}}\""
+        resValue "string", "{{@key}}", "{{{this.value}}}"
+{{/if}}
+{{#if this.isBoolean}}
+        buildConfigField "boolean", "{{@key}}", "{{{this.value}}}"
+        resValue "bool", "{{@key}}", "{{{this.value}}}"
+{{/if}}
+{{#if this.isNumber}}
+{{#if isInteger}}
+        buildConfigField "int", "{{@key}}", "{{{this.value}}}"
+        resValue "integer", "{{@key}}", "{{{this.value}}}"
+{{else}}
+        buildConfigField "double", "{{@key}}", "{{{this.value}}}"
+        resValue "string", "{{@key}}", "{{{this.value}}}"
+{{/if}}
+{{/if}}
+{{/each}}
+    }
+}
+

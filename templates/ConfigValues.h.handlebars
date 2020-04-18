@@ -1,6 +1,14 @@
 // DO NOT COMMIT OR EDIT THIS FILE
 {{#each @root}}
-#define {{@key}} @"{{{this}}}"
+{{#if this.isString}}
+#define {{@key}} @"{{{this.value}}}"
+{{/if}}
+{{#if this.isBoolean}}
+#define {{@key}} [NSNumber numberWithBool:{{{this.value}}}]
+{{/if}}
+{{#if this.isNumber}}
+#define {{@key}} @({{{this.value}}})
+{{/if}}
 {{/each}}
 
 static NSDictionary *getValues() {

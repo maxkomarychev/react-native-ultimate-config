@@ -8,15 +8,15 @@
  * https://github.com/facebook/react-native
  */
 
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 import UltimateConfig from 'react-native-ultimate-config';
-console.log('mm?', UltimateConfig)
+console.log('mm?', UltimateConfig);
 
 export default class App extends Component<{}> {
   state = {
     status: 'starting',
-    message: '--'
+    message: '--',
   };
   // componentDidMount() {
   //   UltimateConfig.sampleMethod('Testing', 123, (message) => {
@@ -31,6 +31,16 @@ export default class App extends Component<{}> {
       <View style={styles.container}>
         <Text>{JSON.stringify(UltimateConfig)}</Text>
         <Text testID="my_value">{UltimateConfig.MY_VALUE}</Text>
+        <Text testID="string_value">
+          {UltimateConfig.STRING_VALUE} {typeof UltimateConfig.STRING_VALUE}
+        </Text>
+        <Text testID="boolean_value">
+          {String(UltimateConfig.BOOLEAN_VALUE)}{' '}
+          {typeof UltimateConfig.BOOLEAN_VALUE}
+        </Text>
+        <Text testID="number_value">
+          {UltimateConfig.NUMBER_VALUE} {typeof UltimateConfig.NUMBER_VALUE}
+        </Text>
         <Text style={styles.welcome}>☆UltimateConfig example☆</Text>
         <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
         <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
