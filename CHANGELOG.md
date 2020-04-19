@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.2.7...v2.0.0) (2020-04-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* this change introduces heavier codegeneration and from
+now on generated files must be regenerated with `rnuc` command whenever
+library is updated.
+
+Migration notes:
+
+1. remove file `android/app/rnuc.properties`
+2. remove entry `rnuc.properties` from `.gitignore`
+3. regenerate configs with `yarn rnuc ...` or `npm run rnuc ...`
+
+### Features
+
+* allow providing config via yaml file ([35fca51](https://github.com/maxkomarychev/react-native-ultimate-config/commit/35fca51f7d6dd4b072510c9cf798e31555ed2686))
+
 ### [1.2.7](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.2.6...v1.2.7) (2020-04-17)
 
 
