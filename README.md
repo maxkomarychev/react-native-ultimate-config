@@ -36,15 +36,15 @@ Therefore every time this library is updated all files MUST be regenerated using
 
 ## Features
 
-1. Simple one-off [setup](./docs.quickstart.md) for native projects
-1. Access from [javascript](https://github.com/maxkomarychev/react-native-ultimate-config/blob/master/docs/api.md#javascript)
-1. Access from native code: [java](https://github.com/maxkomarychev/react-native-ultimate-config/blob/master/docs/api.md#java) and [objective-c](https://github.com/maxkomarychev/react-native-ultimate-config/blob/master/docs/api.md#objective-c)
-1. Access in build tools: [xcode](https://github.com/maxkomarychev/react-native-ultimate-config/blob/master/docs/api.md#infoplist), [gradle](https://github.com/maxkomarychev/react-native-ultimate-config/blob/master/docs/api.md#buildgradle) and [AndroidManifest.xml](https://github.com/maxkomarychev/react-native-ultimate-config/blob/master/docs/api.md#androidmanifestxml)
+1. Simple one-off [setup](./docs/quickstart.md) for native projects
+1. Access from [javascript](./docs/api.md#javascript)
+1. Access from native code: [java](./docs/api.md#java) and [objective-c](./docs/api.md#objective-c)
+1. Access in build tools: [xcode](./docs/api.md#infoplist), [gradle](./docs/api.md#buildgradle) and [AndroidManifest.xml](./docs/api.md#androidmanifestxml)
 1. Unit tested
 1. E2E tested
 1. Provides typescript typings
-1. Supports [dotenv and yaml](https://github.com/maxkomarychev/react-native-ultimate-config/blob/master/docs/api.md#files)
-1. [Fully typed](https://github.com/maxkomarychev/react-native-ultimate-config/blob/master/docs/api.md#note-about-types) values available when using yaml config
+1. Supports [dotenv and yaml](./docs/api.md#files)
+1. [Fully typed](./docs/api.md#note-about-types) values available when using yaml config
 
 ## Mission
 
