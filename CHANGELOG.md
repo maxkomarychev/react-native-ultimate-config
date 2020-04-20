@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v2.0.0...v2.0.1) (2020-04-20)
+
+
+### Bug Fixes
+
+* fix warning about main queue in ios ([1b7b28c](https://github.com/maxkomarychev/react-native-ultimate-config/commit/1b7b28cb16e2c6b8fede3e5189f910724755e67b))
+
+
+### Docs
+
+* replace http links with relative ones ([3c65b3f](https://github.com/maxkomarychev/react-native-ultimate-config/commit/3c65b3f63f587b560d4e417be4e65c4fb9c1c07e))
+
 ## [2.0.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v1.2.7...v2.0.0) (2020-04-19)
 
 
