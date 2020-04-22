@@ -30,6 +30,7 @@ Therefore every time this library is updated all files MUST be regenerated using
 1. [Mission](#mission)
 1. [Quickstart Guide](./docs/quickstart.md)
 1. [API](./docs/api.md)
+1. [Cookbook](./docs/cookbook.md)
 1. [TypeScript Support](#typescript-support)
 1. [Alternatives](#alternatives)
 1. [Developing](#developing)

@@ -85,6 +85,7 @@ apply from: "../../node_modules/react-native/react.gradle"
 apply from: "../../../android/rnuc.gradle"
 println "main project"
 println project.config.get("APP_NAME")
+println project.config.get("BUNDLE_ID")
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -132,7 +133,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example"
+        applicationId project.config.get("BUNDLE_ID")//"com.example"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
