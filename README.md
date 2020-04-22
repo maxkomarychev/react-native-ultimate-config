@@ -26,14 +26,14 @@ Therefore every time this library is updated all files MUST be regenerated using
 
 ## Table of contents
 
-1. [Features](#features)
-1. [Mission](#mission)
-1. [Quickstart Guide](./docs/quickstart.md)
-1. [API](./docs/api.md)
-1. [Cookbook](./docs/cookbook.md)
+1. [Features 🎆](#features)
+1. [Mission 🥾](#mission)
+1. [Quickstart Guide 🏃](./docs/quickstart.md)
+1. [API 🧰](./docs/api.md)
+1. [Cookbook 🥦](./docs/cookbook.md)
 1. [TypeScript Support](#typescript-support)
 1. [Alternatives](#alternatives)
-1. [Developing](#developing)
+1. [Dev notes](./docs/devnotes.md)
 
 ## Features
 
@@ -53,21 +53,30 @@ React-Native brings together 3 platforms: ios, android, javascript each of
 which have different conventions and approaches how to manage environment
 settings.
 
-react-native-ultimate-config exposes configuration from env files to all
-levels of the projects:
+A typical app is usually operating in some environment defined by server urls
+various api keys or feature flags. When dealing with react-native such things
+often need to exist in 3 places: ios, android and js code. Even managing things
+as simple as application name or bundle id needs to be done in 2 places:
+`Info.plist` and `AndroidManifest.xml`
 
-1. javascript
-1. native code
-   - java
-   - objective-c
-1. native build configuration
-   - ios
-     - build settings
-     - infoplist
-   - android
-     - build config
-     - string resources
-     - project.ext
+`react-native-ultimate-config` tries to reduce friction in managing these things
+by abstracting away from nuances of native projects.
+
+With `react-native-ultimate-config` it is possible to [consume](./docs/api.md) variables in
+every place of a typical react-native app:
+
+- javascript
+- native code
+  - java
+  - objective-c
+- native build configuration
+  - ios
+    - build settings
+    - infoplist
+  - android
+    - build config
+    - string resources
+    - project.ext
 
 ```
 |-------------------------------------------------------|
@@ -86,15 +95,6 @@ levels of the projects:
 |-------------------------------------------------------|
 ```
 
-react-native-ultimate-config offers a way to configure your projects on all
-levels and keep configuration data separate from code or project files:
-api urls, app names, feature flags.
-Anything you would typically put into environment can now be loaded from a
-separate file.
-
-After trivial one-time setup of native projects exposing environment to the
-app happens with a single command.
-
 ## TypeScript Support
 
 `index.d.ts` is generated dynamically according to variables defined in envfile
@@ -105,25 +105,3 @@ app happens with a single command.
 | ----------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | [react-native-dotenv](https://github.com/zetachang/react-native-dotenv) | Javascript only. Does not allow to configure native counterpart of the app |
 | [react-native-config](https://github.com/luggit/react-native-config)    | Allows configuring native and javascript                                   |
-
-## Developing
-
-### Misc
-
-Files
-
-```
-android/src/main/java/com/reactnativeultimateconfig/ConfigValues.java
-ios/ConfigValues.h
-```
-
-are updated with every `rnuc` execution, yet they have to exist in the repo.
-
-In order to avoid committing them accidentally run
-
-```bash
-git update-index --assume-unchanged android/src/main/java/com/reactnativeultimateconfig/ConfigValues.java ios/ConfigValues.h
-```
-
-When changing them turn the flag off, update, commit, turn flag back on.
-More details: https://git-scm.com/docs/git-update-index#_using_assume_unchanged_bit
