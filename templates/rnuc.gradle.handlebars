@@ -13,6 +13,15 @@ android {
 {{/each}}
         ]
         project.ext.set("config", config)
+        manifestPlaceholders = [
+{{#each @root}}
+{{#if this.isString}}
+            "{{@key}}": "{{{this.value}}}",
+{{else}}
+            "{{@key}}": {{{this.value}}},
+{{/if}}
+{{/each}}
+        ]
 {{#each @root}}
 {{#if this.isString}}
         buildConfigField "String", "{{@key}}", "\"{{{this.value}}}\""

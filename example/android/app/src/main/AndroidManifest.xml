@@ -12,7 +12,7 @@
       android:theme="@style/AppTheme">
       <activity
         android:name=".MainActivity"
-        android:label="@string/APP_NAME"
+        android:label="${APP_NAME}"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
         android:launchMode="singleTask"
         android:windowSoftInputMode="adjustResize">

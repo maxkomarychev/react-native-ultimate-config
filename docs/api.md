@@ -84,13 +84,27 @@ project.config.get("APP_NAME")
 
 ### AndroidManifest.xml
 
-All values from environment are made available as string resources.
+All values from environment are made available as resources and [manifest placeholders](https://developer.android.com/studio/build/manifest-build-variables)
+
 They are accessible as:
+
+#### a string resource
 
 ```xml
       <activity
         ...
         android:label="@string/APP_NAME"
+        />
+        ...
+      </activity>
+```
+
+#### a placeholder variable
+
+```xml
+      <activity
+        ...
+        android:label="${APP_NAME}"
         />
         ...
       </activity>

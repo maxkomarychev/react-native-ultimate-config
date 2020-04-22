@@ -63,6 +63,8 @@ jobs:
           grep STRING_VALUE android/app/build/generated/not_namespaced_r_class_sources/debug/r/com/example/R.java
           grep BOOLEAN_VALUE android/app/build/generated/not_namespaced_r_class_sources/debug/r/com/example/R.java
           grep NUMBER_VALUE android/app/build/generated/not_namespaced_r_class_sources/debug/r/com/example/R.java
+
+          grep "RNUC Demo" android/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml
         working-directory: example
 
   unittest:
