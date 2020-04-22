@@ -73,7 +73,7 @@ typical tasks
    ![app name screenshot ios](./cookbook.assets/find-bundle-id.png)
 1. replace it with `${BUNDLE_ID}`
 
-![app name screenshot ios](./cookbook.assets/replace-bundle-id.png)
+   ![app name screenshot ios](./cookbook.assets/replace-bundle-id.png)
 
 1. checkout bunle id has changed
    ![app name screenshot ios](./cookbook.assets/checkout-bundle-id-1.png)
@@ -128,10 +128,12 @@ Suppose you want your app to open links with scheme "awesomeapp://"
 
 ## Using multiple schemes (ios)
 
-⚠️ This recipe has experimental support and may not work in every environment.
+️❗❗❗This recipe has experimental support and may not cover all edge cases
 
-❗❗❗With this approach xcode project remains uninitialized until you build
-it first time. While this approach may work in certain scenarios make sure
+⚠️️⚠️️⚠️️ With this approach xcode project remains uninitialized until you build
+it first time. Until project is built some UI elements may dispay empty values (like app name or bundle id)
+
+⚠️️⚠️️⚠️️ While this approach is suitable in certain scenarios make sure
 you know exactly why do you need multiple schemes in first place.
 
 Using multiple schemes it is possible to avoid using cli tool manually when building specific environment. This is possible by defining pre-build script
