@@ -169,3 +169,5 @@ phase in a scheme.
     ```
 
     ![add pre-action](./cookbook.assets/paste-code.png)
+
+1.  you can now duplicate scheme per every environment you use and change name of the file that is used for `rnuc` command.
