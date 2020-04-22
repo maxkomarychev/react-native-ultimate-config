@@ -8,6 +8,10 @@ android {
             "MY_URL": "http://hello.world?howareyoudoing=ok",
         ]
         project.ext.set("config", config)
+        manifestPlaceholders = [
+            "MY_VARIABLE": "hello",
+            "MY_URL": "http://hello.world?howareyoudoing=ok",
+        ]
         buildConfigField "String", "MY_VARIABLE", "\"hello\""
         resValue "string", "MY_VARIABLE", "hello"
         buildConfigField "String", "MY_URL", "\"http://hello.world?howareyoudoing=ok\""
