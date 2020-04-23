@@ -11,6 +11,7 @@ typical tasks
 1. [Bundle identifier](#bundle-identifier)
 1. [Deeplink](#deeplink)
 1. [Using multiple schemes (ios)](#using-multiple-schemes-ios)
+1. [Using multiple flavors (android)](#using-multiple-flavors-android)
 
 ## Application name
 
@@ -134,7 +135,7 @@ Suppose you want your app to open links with scheme "awesomeapp://"
 it first time. Until project is built some UI elements may dispay empty values (like app name or bundle id)
 
 ⚠️️⚠️️⚠️️ While this approach is suitable in certain scenarios make sure
-you know exactly why do you need multiple schemes in first place.
+you know exactly why do you need multiple schemes in first place. This library lets you avoid creating unnecessary native schemes/targets in many scenarios.
 
 Using multiple schemes it is possible to avoid using cli tool manually when building specific environment. This is possible by defining pre-build script
 phase in a scheme.
@@ -171,3 +172,38 @@ phase in a scheme.
     ![add pre-action](./cookbook.assets/paste-code.png)
 
 1.  you can now duplicate scheme per every environment you use and change name of the file that is used for `rnuc` command.
+
+## Using multiple flavors (android)
+
+️❗❗❗This recipe has experimental support and may not cover all edge cases
+
+⚠️️⚠️️⚠️️ While this approach is suitable in certain scenarios make sure
+you know exactly why do you need multiple flavors in first place. This library lets you avoid creating unnecessary native flavors in many scenarios.
+
+Assuming you want to support multiple flavors of the app: "dev" and "staging".
+
+1. Define flavor => env mepping in `android/app/build.gradle`
+
+   ```gradle
+   project.ext.flavorEnvMapping = [
+       dev: "../.env.yaml",
+       staging: "../.env.staging.yaml"
+   ]
+   ```
+
+   ️️⚠️️ only yaml files are supported here
+
+1. Define some flavors (or you may already have them defined)
+
+   ```gradle
+    flavorDimensions "default"
+    productFlavors {
+        dev{
+        }
+        staging{
+        }
+    }
+   ```
+
+1. Done. Whenever gradle is configuring tasks it will read env data from files
+   and populate resources, build config and manifest placeholders from them.

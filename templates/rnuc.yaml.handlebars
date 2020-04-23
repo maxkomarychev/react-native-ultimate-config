@@ -1,0 +1,7 @@
+{{#each @root}}
+{{#if this.isString}}
+{{@key}}: "{{{this.value}}}"
+{{else}}
+{{@key}}: {{{this.value}}}
+{{/if}}
+{{/each}}

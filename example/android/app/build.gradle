@@ -80,6 +80,8 @@ import com.android.build.OutputFile
 project.ext.react = [
     enableHermes: false,  // clean and rebuild if changing
 ]
+// uncomment to get config auto injected per flavor
+// project.ext.flavorEnvMapping= [dev:"../.env.yaml", staging:"../.env.staging.yaml"]
 
 apply from: "../../node_modules/react-native/react.gradle"
 apply from: "../../../android/rnuc.gradle"
@@ -167,6 +169,14 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+    // uncomment to get config auto injected per flavor
+    // flavorDimensions "default"
+    // productFlavors {
+    //     dev{
+    //     }
+    //     staging{
+    //     }
+    // }
 
     packagingOptions {
         pickFirst "lib/armeabi-v7a/libc++_shared.so"

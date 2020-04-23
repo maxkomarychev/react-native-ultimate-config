@@ -1,2 +1,91 @@
 // DO NOT COMMIT OR EDIT THIS FILE
-throw new GradleException("invoke bin.js with env file before compiling native project")
+import java.nio.file.Paths 
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'org.yaml', name: 'snakeyaml', version: '1.19'
+    }
+}
+
+
+def readYaml(yamlPath) {
+    def cfg = new org.yaml.snakeyaml.Yaml()
+        .load(new File(
+                yamlPath
+                .toAbsolutePath()
+                .toString()
+                ).newInputStream() 
+            )
+    return cfg
+}
+
+def buildRootConfig() {
+    def flavorMappingExists = project.ext.has('flavorEnvMapping')
+    if (flavorMappingExists) {
+        def config = [:]
+        def flavorMapping = project.ext.get('flavorEnvMapping')
+        println "Flavor mapping detected: ${flavorMapping}"
+        flavorMapping.each { flavor, yamlPath -> 
+            config.put(flavor, readYaml(Paths.get(yamlPath)))
+        }
+        return config
+    } else {
+        println "No flavor mapping detected. Reading injected file"
+        def cfg = readYaml(Paths.get(buildscript.sourceFile.getParent(), "rnuc.yaml"))
+        return cfg
+    }
+}
+
+
+def rootConfig = buildRootConfig()
+println "Root config ${rootConfig}"
+
+def configPerFlavor(flavorName, rootConfig) {
+    def mapping = project.ext.has('flavorEnvMapping')
+    if (mapping && !flavorName.isEmpty()) {
+        println "mapping exists"
+        def f = rootConfig.get(flavorName)
+        return f
+    } else {
+        println "mapping does not exist or flavor is not defined"
+        return rootConfig
+    }
+}
+
+android {
+    // patch all variants with config values
+    applicationVariants.all { variant ->
+        println "processing variant ${variant.name}"
+        def flavorName = variant.flavorName 
+
+        def cfg = configPerFlavor(flavorName, rootConfig)
+        println "config per flavor ${flavorName} ${cfg}"
+        variant.mergedFlavor.manifestPlaceholders.putAll(cfg)
+
+        cfg.each { k,v -> 
+            if (v instanceof java.lang.String) {
+                variant.buildConfigField "String", k, "\"${v}\""
+                variant.resValue "string", k, "\"${v}\""
+            } else if (v instanceof Integer) {
+                variant.buildConfigField "int", k, "${v}"
+                variant.resValue "integer", k, "${v}"
+            } else if (v instanceof Double) {
+                variant.buildConfigField "double", k, "${v}"
+                variant.resValue "string", k, "${v}"
+            } else if (v instanceof Boolean) {
+                variant.buildConfigField "boolean", k, "${v}"
+                variant.resValue "bool", k, "${v}"
+            } else {
+                throw new GradleException("unknown type for key ${k} in flavor ${flavorName}: ${v.getClass()}")
+            }
+        }
+
+    }
+    defaultConfig {
+        project.ext.set("config", rootConfig)
+    }
+}
+

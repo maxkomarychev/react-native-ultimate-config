@@ -29,8 +29,8 @@ function render_env(project_root, lib_root, env) {
       "android",
       `src/main/java/com/reactnativeultimateconfig/${code_file_name}.java`
     )]: render_template("ConfigValues.java", env),
-    [path.join(lib_root, "android", `rnuc.gradle`)]: render_template(
-      "rnuc.gradle",
+    [path.join(lib_root, "android", `rnuc.yaml`)]: render_template(
+      "rnuc.yaml",
       env
     ),
     [path.join(
