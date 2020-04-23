@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v2.1.0...v2.2.0) (2020-04-23)
+
+
+### Features
+
+* **android:** experimental: allow auto config per flavor ([265eec5](https://github.com/maxkomarychev/react-native-ultimate-config/commit/265eec57b24177cea6606faf56f198a0a36fe930))
+
 ## [2.1.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v2.0.1...v2.1.0) (2020-04-22)
 
 
