@@ -175,7 +175,8 @@ phase in a scheme.
 
 ## Using multiple flavors (android)
 
-️❗❗❗This recipe has experimental support and may not cover all edge cases
+️❗❗❗This recipe has experimental support and may not cover all edge cases.
+️❗Typescript typings are not available for this setup at the moment.
 
 ⚠️️⚠️️⚠️️ While this approach is suitable in certain scenarios make sure
 you know exactly why do you need multiple flavors in first place. This library lets you avoid creating unnecessary native flavors in many scenarios.
