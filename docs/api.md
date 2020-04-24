@@ -5,6 +5,7 @@ Table of contents
 1. [Files](#files)
 1. [CLI](#cli)
 1. [Javascript](#javascript)
+1. [Typescript](#typescript)
 1. [ios](#ios)
    1. [Info.plist](#infoplist)
    1. [Objective-C](#objective-c)
@@ -37,6 +38,10 @@ import config from "react-native-ultimate-config";
 // access variables
 config.MY_CONFIG;
 ```
+
+## Typescript
+
+`index.d.ts` file is generated according to consumed environment
 
 ## ios
 

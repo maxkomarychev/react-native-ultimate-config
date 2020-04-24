@@ -31,19 +31,19 @@ Therefore every time this library is updated all files MUST be regenerated using
 1. [Quickstart Guide 🏃](./docs/quickstart.md)
 1. [API 🧰](./docs/api.md)
 1. [Cookbook 🥦](./docs/cookbook.md)
-1. [TypeScript Support](#typescript-support)
 1. [Alternatives](#alternatives)
 1. [Dev notes](./docs/devnotes.md)
 
 ## Features
 
 1. Simple one-off [setup](./docs/quickstart.md) for native projects
+1. No need to mess with xcode schemes or android flavors
 1. Access from [javascript](./docs/api.md#javascript)
 1. Access from native code: [java](./docs/api.md#java) and [objective-c](./docs/api.md#objective-c)
 1. Access in build tools: [xcode](./docs/api.md#infoplist), [gradle](./docs/api.md#buildgradle) and [AndroidManifest.xml](./docs/api.md#androidmanifestxml)
-1. Unit tested
-1. E2E tested
-1. Provides typescript typings
+1. Unit tested with jest
+1. E2E tested with detox
+1. Provides typescript [typings](./docs/api.md#typescript)
 1. Supports [dotenv and yaml](./docs/api.md#files)
 1. [Fully typed](./docs/api.md#note-about-types) values available when using yaml config
 
@@ -94,10 +94,6 @@ every place of a typical react-native app:
 |                          |                            |
 |-------------------------------------------------------|
 ```
-
-## TypeScript Support
-
-`index.d.ts` is generated dynamically according to variables defined in envfile
 
 ## Alternatives
 
