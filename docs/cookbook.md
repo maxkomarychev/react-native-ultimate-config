@@ -129,7 +129,9 @@ Suppose you want your app to open links with scheme "awesomeapp://"
 
 ## Using multiple schemes (ios)
 
-️❗❗❗This recipe has experimental support and may not cover all edge cases
+️❗❗❗This recipe has experimental support and may not cover all edge cases.
+If your project is using multiple schemes you may still use library via cli
+without this recipe.
 
 ⚠️️⚠️️⚠️️ With this approach xcode project remains uninitialized until you build
 it first time. Until project is built some UI elements may dispay empty values (like app name or bundle id)
@@ -176,6 +178,8 @@ phase in a scheme.
 ## Using multiple flavors (android)
 
 ️❗❗❗This recipe has experimental support and may not cover all edge cases.
+If your project is using multiple flavors you may still use library via cli
+without this recipe.
 ️❗Typescript typings are not available for this setup at the moment.
 
 ⚠️️⚠️️⚠️️ While this approach is suitable in certain scenarios make sure
