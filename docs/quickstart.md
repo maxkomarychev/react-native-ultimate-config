@@ -1,5 +1,10 @@
 # Quickstart
 
+This document covers basic setup assuming default react-native's template with
+single scheme/target on ios and default flavor on android.
+
+For advanced setup please refer to [cookbook](./cookbook.md)
+
 1. Add dependency
 
    | npm                                        | yarn                                    |
@@ -52,23 +57,43 @@
          ![set](./quickstart.assets/ios.4.png)
 
    1. android
+      <a name="android"></a>
 
-      Add this right after applying react's plugin:
+      1. apply plugin in gradle
+         Add this right after applying react's plugin:
 
-      ```gradle
-      apply from: "../../node_modules/react-native-ultimate-config/android/rnuc.gradle"
-      ```
+         ```gradle
+         apply from: "../../node_modules/react-native-ultimate-config/android/rnuc.gradle"
+         ```
 
-      Final code:
+         Final code:
 
-      ```gradle
-      apply from: "../../node_modules/react-native/react.gradle"
-      apply from: "../../node_modules/react-native-ultimate-config/android/rnuc.gradle"
-      ```
+         ```gradle
+         apply from: "../../node_modules/react-native/react.gradle"
+         apply from: "../../node_modules/react-native-ultimate-config/android/rnuc.gradle"
+         ```
 
-   1. save changes made to navite projects `.xcodeproj` file and `build.gradle`.
-      **DO NOT COMMMIT** `rnuc.*` files.
+      2. expose `BuildConfig` to the library
 
-1. from now on every time you need to switch environment just run
+         in `MainApplication.java` add
+
+         ```java
+         // import module
+         import com.reactnativeultimateconfig.UltimateConfigModule;
+
+         ...
+
+         @Override
+         public void onCreate() {
+            super.onCreate();
+            ...
+            UltimateConfigModule.setBuildConfig(BuildConfig.class); // expose
+         }
+         ```
+
+1) save changes made to navite projects `.xcodeproj` file and `build.gradle`.
+   **DO NOT COMMMIT** `rnuc.*` files.
+
+1) from now on every time you need to switch environment just run
    `npm run rnuc <dotenv file>` or `yarn rnuc <dotenv file>` and rerun native project with
    `react-native run-{ios,android}`

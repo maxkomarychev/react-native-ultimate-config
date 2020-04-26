@@ -13,3 +13,4 @@ android/build
 index.d.ts
 coverage
 android/rnuc.yaml
+e2e

@@ -5,7 +5,6 @@
 Files
 
 ```
-android/src/main/java/com/reactnativeultimateconfig/ConfigValues.java
 ios/ConfigValues.h
 ```
 
@@ -14,7 +13,7 @@ are updated with every `rnuc` execution, yet they have to exist in the repo.
 In order to avoid committing them accidentally run
 
 ```bash
-git update-index --assume-unchanged android/src/main/java/com/reactnativeultimateconfig/ConfigValues.java ios/ConfigValues.h
+git update-index --assume-unchanged ios/ConfigValues.h
 ```
 
 When changing them turn the flag off, update, commit, turn flag back on.

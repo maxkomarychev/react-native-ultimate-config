@@ -63,6 +63,11 @@ android {
 
         def cfg = configPerFlavor(flavorName, rootConfig)
         println "config per flavor ${flavorName} ${cfg}"
+        def keySet = cfg.keySet().collect()
+        println "all keys ${keySet}"
+        def rnucKeys = java.lang.String.join(",", keySet)
+        println "all keys as string ${rnucKeys}"
+        variant.buildConfigField "String", "__RNUC_KEYS", "\"${rnucKeys}\""
         variant.mergedFlavor.manifestPlaceholders.putAll(cfg)
 
         cfg.each { k,v -> 

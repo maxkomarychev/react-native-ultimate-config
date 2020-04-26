@@ -10,6 +10,11 @@ public class UltimateConfigModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
 
+    private static Class _buildConfig;
+    public static void setBuildConfig(Class buildConfig) {
+        _buildConfig = buildConfig;
+    }
+
     public UltimateConfigModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
@@ -20,8 +25,19 @@ public class UltimateConfigModule extends ReactContextBaseJavaModule {
         return "UltimateConfig";
     }
 
+
     @Override
     public Map<String, Object> getConstants() {
-        return ConfigValues.getConstants();
+        final Map<String, Object> constants = new HashMap<>();
+        try {
+            Class act = _buildConfig;
+            String keys = (String)act.getField("__RNUC_KEYS").get(act);
+            for (String k: keys.split(",")) {
+                constants.put(k, act.getField(k).get(act));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return constants;
     }
 }

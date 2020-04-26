@@ -187,7 +187,7 @@ you know exactly why do you need multiple flavors in first place. This library l
 
 Assuming you want to support multiple flavors of the app: "dev" and "staging".
 
-1. Define flavor => env mepping in `android/app/build.gradle`
+1. Define flavor => env mapping in `android/app/build.gradle`
 
    ```gradle
    project.ext.flavorEnvMapping = [
@@ -210,5 +210,7 @@ Assuming you want to support multiple flavors of the app: "dev" and "staging".
     }
    ```
 
-1. Done. Whenever gradle is configuring tasks it will read env data from files
-   and populate resources, build config and manifest placeholders from them.
+1. Done. If you run `(cd android; ./gradlew/assembleDebug)` it will properly
+   pick up all configs per flavor names. Whenever gradle is configuring tasks
+   it will read env data from files and populate resources, build config and
+   manifest placeholders from them.

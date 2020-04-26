@@ -44,6 +44,7 @@ buck-out/
 # Codegen
 /index.d.ts
 /android/rnuc.yaml
+rnuc.xcconfig
 
 # Jest
 coverage

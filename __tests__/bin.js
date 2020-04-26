@@ -18,7 +18,6 @@ const env_test_content = ``;
 const files_to_assert = [
   "ios/rnuc.xcconfig",
   "node_modules/react-native-ultimate-config/ios/ConfigValues.h",
-  "node_modules/react-native-ultimate-config/android/src/main/java/com/reactnativeultimateconfig/ConfigValues.java",
   "node_modules/react-native-ultimate-config/android/rnuc.yaml",
   "node_modules/react-native-ultimate-config/index.d.ts",
 ];
