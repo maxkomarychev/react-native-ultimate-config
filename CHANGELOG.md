@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v2.2.0...v3.0.0) (2020-04-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* **android:** In order to support android projects with multiple
+flavors approach to how env variables are propagated into runtime has
+been changed. This requires to change how android project is configured.
+More specifically: it RN module requires access to `BuilConfig` class of
+host app in order to expose variables into JS runtime:
+
+Migration guide from [quickstart](./docs/quickstart.md#android):
+
+in `MainApplication.java` add
+
+```java
+// import module
+import com.reactnativeultimateconfig.UltimateConfigModule;
+
+...
+
+@Override
+public void onCreate() {
+super.onCreate();
+...
+UltimateConfigModule.setBuildConfig(BuildConfig.class); // expose
+}
+```
+
+### Features
+
+* **android:** support multi flavor set up ([271924c](https://github.com/maxkomarychev/react-native-ultimate-config/commit/271924cb7103ffaac086fcd518d5f264ea720b6d))
+
 ## [2.2.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v2.1.0...v2.2.0) (2020-04-23)
 
 
