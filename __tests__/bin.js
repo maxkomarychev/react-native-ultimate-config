@@ -6,8 +6,6 @@ const mock_load_env = jest.fn();
 jest.doMock("../load-env", () => mock_load_env);
 const mock_render_env = jest.fn();
 jest.doMock("../render-env", () => mock_render_env);
-const mock_add_types = jest.fn();
-jest.doMock("../add-types", () => mock_add_types);
 const mock_write_env = jest.fn();
 jest.doMock("../write-env", () => mock_write_env);
 
@@ -60,7 +58,6 @@ describe("main", () => {
     const mock_writeFileSync = jest.fn();
     jest.doMock("fs", () => ({ writeFileSync: mock_writeFileSync }));
     mock_load_env.mockReturnValueOnce({ data: true });
-    mock_add_types.mockReturnValueOnce({ with: "types" });
     mock_render_env.mockReturnValueOnce({ hello: "world" });
     main(
       "project",
@@ -68,11 +65,10 @@ describe("main", () => {
       "file"
     );
     expect(mock_load_env).toHaveBeenCalledWith("file");
-    expect(mock_add_types).toHaveBeenCalledWith({ data: true });
     expect(mock_render_env).toHaveBeenCalledWith(
       "project",
       "project/node_modules/react-native-ultimate-config",
-      { with: "types" }
+      { data: true }
     );
     expect(mock_write_env).toHaveBeenCalledWith({ hello: "world" });
   });

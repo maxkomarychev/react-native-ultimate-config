@@ -1,13 +1,17 @@
 // DO NOT COMMIT OR EDIT THIS FILE
 {{#each @root}}
-{{#if this.isString}}
-#define {{@key}} @"{{{this.value}}}"
+{{#if (isString this)}}
+#define {{@key}} @"{{{this}}}"
 {{/if}}
-{{#if this.isBoolean}}
-#define {{@key}} [NSNumber numberWithBool:{{{this.value}}}]
+{{#if (isBoolean this)}}
+{{#if this}}
+#define {{@key}} @(YES)
+{{else}}
+#define {{@key}} @(NO)
 {{/if}}
-{{#if this.isNumber}}
-#define {{@key}} @({{{this.value}}})
+{{/if}}
+{{#if (isNumber this)}}
+#define {{@key}} @({{{this}}})
 {{/if}}
 {{/each}}
 

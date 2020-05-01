@@ -2,6 +2,10 @@
 export interface ConfigVariables {
   MY_VARIABLE: string;
   MY_URL: string;
+  MY_STRING: string;
+  MY_NUMBER: number;
+  MY_BOOLEAN: boolean;
+  MY_BOOLEAN_FALSE: boolean;
 }
 
 declare const UltimateConfig: ConfigVariables;

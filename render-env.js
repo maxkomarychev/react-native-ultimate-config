@@ -5,6 +5,18 @@ const fs = require("fs");
 const code_file_name = "ConfigValues";
 const config_file_name = "rnuc";
 
+function is_string(value) {
+  return typeof value === "string";
+}
+
+function is_number(value) {
+  return typeof value === "number";
+}
+
+function is_boolean(value) {
+  return typeof value === "boolean";
+}
+
 function render_template(template_name, data) {
   const template_path = path.join(
     __dirname,
@@ -12,6 +24,9 @@ function render_template(template_name, data) {
     `${template_name}.handlebars`
   );
   const template_string = fs.readFileSync(template_path).toString();
+  handlebars.registerHelper("isBoolean", is_boolean);
+  handlebars.registerHelper("isString", is_string);
+  handlebars.registerHelper("isNumber", is_number);
   const parsed_template = handlebars.compile(template_string);
   const rendered = parsed_template(data);
   return rendered;

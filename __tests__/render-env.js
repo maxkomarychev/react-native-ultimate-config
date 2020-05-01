@@ -14,8 +14,12 @@ describe("render_env", () => {
   let map = undefined;
   beforeEach(() => {
     map = render_env(PROJECT_ROOT, LIB_ROOT, {
-      MY_VARIABLE: { value: "hello", isString: true },
-      MY_URL: { value: "http://hello.world?howareyoudoing=ok", isString: true },
+      MY_VARIABLE: "hello",
+      MY_URL: "http://hello.world?howareyoudoing=ok",
+      MY_STRING: "string_value",
+      MY_NUMBER: 42,
+      MY_BOOLEAN: true,
+      MY_BOOLEAN_FALSE: false,
     });
   });
 
