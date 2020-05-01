@@ -5,6 +5,22 @@ const fs = require("fs");
 const code_file_name = "ConfigValues";
 const config_file_name = "rnuc";
 
+function ios_value(value) {
+  if (is_string(value) || is_number(value) || is_boolean(value)) {
+    return value;
+  } else {
+    return value.ios;
+  }
+}
+
+function android_value(value) {
+  if (is_string(value) || is_number(value) || is_boolean(value)) {
+    return value;
+  } else {
+    return value.android;
+  }
+}
+
 function is_string(value) {
   return typeof value === "string";
 }
@@ -24,6 +40,8 @@ function render_template(template_name, data) {
     `${template_name}.handlebars`
   );
   const template_string = fs.readFileSync(template_path).toString();
+  handlebars.registerHelper("iosValue", ios_value);
+  handlebars.registerHelper("androidValue", android_value);
   handlebars.registerHelper("isBoolean", is_boolean);
   handlebars.registerHelper("isString", is_string);
   handlebars.registerHelper("isNumber", is_number);

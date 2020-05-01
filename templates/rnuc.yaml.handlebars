@@ -1,7 +1,7 @@
 {{#each @root}}
-{{#if (isString this)}}
-{{@key}}: "{{{this}}}"
+{{#if (isString (androidValue this))}}
+{{@key}}: "{{{androidValue this}}}"
 {{else}}
-{{@key}}: {{{this}}}
+{{@key}}: {{{androidValue this}}}
 {{/if}}
 {{/each}}

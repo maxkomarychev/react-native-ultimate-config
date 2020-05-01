@@ -41,6 +41,7 @@ export default class App extends Component<{}> {
         <Text testID="number_value">
           {UltimateConfig.NUMBER_VALUE} {typeof UltimateConfig.NUMBER_VALUE}
         </Text>
+        <Text testID="per_platform_value">{UltimateConfig.PER_PLATFORM}</Text>
         <Text style={styles.welcome}>☆UltimateConfig example☆</Text>
         <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
         <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>

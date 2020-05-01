@@ -36,6 +36,7 @@ static void InitializeFlipper(UIApplication *application) {
 #endif
 
   NSLog(APP_NAME);
+  NSLog(PER_PLATFORM);
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"example"

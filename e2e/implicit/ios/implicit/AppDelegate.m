@@ -23,6 +23,9 @@ static void InitializeFlipper(UIApplication *application) {
 }
 #endif
 
+
+#import <react-native-ultimate-config/ConfigValues.h>
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -30,6 +33,9 @@ static void InitializeFlipper(UIApplication *application) {
 #if DEBUG
   InitializeFlipper(application);
 #endif
+
+
+  NSLog(PER_PLATFORM);
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge

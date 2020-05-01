@@ -40,12 +40,13 @@ Therefore every time this library is updated all files MUST be regenerated using
 1. No need to mess with xcode schemes or android flavors
 1. Access from [javascript](./docs/api.md#javascript)
 1. Access from native code: [java](./docs/api.md#java) and [objective-c](./docs/api.md#objective-c)
-1. Access in build tools: [xcode](./docs/api.md#infoplist), [gradle](./docs/api.md#buildgradle) and [AndroidManifest.xml](./docs/api.md#androidmanifestxml)
+1. Access in build tools: [xcode](./docs/api.md#ios), [gradle](./docs/api.md#buildgradle) and [AndroidManifest.xml](./docs/api.md#androidmanifestxml)
 1. Unit tested with jest
 1. E2E tested with detox
 1. Provides typescript [typings](./docs/api.md#typescript)
 1. Supports [dotenv and yaml](./docs/api.md#files)
 1. [Fully typed](./docs/api.md#note-about-types) values available when using yaml config
+1. Configure values [per platform](./docs/api.md#per-platform-values) in one file
 
 ## Mission
 

@@ -39,6 +39,26 @@ def buildRootConfig() {
     }
 }
 
+def flattenConfig(cfg) {
+    def result = [:]
+    cfg.each { k,v ->
+        if (
+            v instanceof java.lang.String
+        || v instanceof Integer
+        || v instanceof Double
+        || v instanceof Boolean
+        ) {
+            result.put(k,v)
+        } else {
+            def androidValue = v.get("android")
+            if (androidValue == null) {
+                throw new GradleException("key ${k} is missing android value")
+            }
+            result.put(k, v.get("android"))
+        }
+    }
+    return result
+}
 
 def rootConfig = buildRootConfig()
 println "Root config ${rootConfig}"
@@ -61,7 +81,7 @@ android {
         println "processing variant ${variant.name}"
         def flavorName = variant.flavorName 
 
-        def cfg = configPerFlavor(flavorName, rootConfig)
+        def cfg = flattenConfig(configPerFlavor(flavorName, rootConfig))
         println "config per flavor ${flavorName} ${cfg}"
         def keySet = cfg.keySet().collect()
         println "all keys ${keySet}"

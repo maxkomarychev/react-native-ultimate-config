@@ -20,6 +20,7 @@ describe("render_env", () => {
       MY_NUMBER: 42,
       MY_BOOLEAN: true,
       MY_BOOLEAN_FALSE: false,
+      PER_PLATFORM: { ios: "hello", android: "world" },
     });
   });
 

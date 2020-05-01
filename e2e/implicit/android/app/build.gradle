@@ -87,6 +87,7 @@ project.ext.flavorEnvMapping = [
 ]
 apply from: "../../node_modules/react-native/react.gradle"
 apply from: "../../node_modules/react-native-ultimate-config/android/rnuc.gradle"
+println project.config.get("PER_PLATFORM")
 
 /**
  * Set this to true to create two separate APKs instead of one:

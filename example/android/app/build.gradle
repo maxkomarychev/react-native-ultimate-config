@@ -88,6 +88,7 @@ apply from: "../../../android/rnuc.gradle"
 println "main project"
 println project.config.get("APP_NAME")
 println project.config.get("BUNDLE_ID")
+println project.config.get("PER_PLATFORM")
 
 /**
  * Set this to true to create two separate APKs instead of one:

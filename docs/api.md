@@ -7,6 +7,7 @@ Table of contents
 1. [Javascript](#javascript)
 1. [Typescript](#typescript)
 1. [ios](#ios)
+   1. [Build settings](#build-settings)
    1. [Info.plist](#infoplist)
    1. [Objective-C](#objective-c)
 1. [Android](#android)
@@ -17,7 +18,35 @@ Table of contents
 
 ## Files
 
-Environment data can be read from both dotenv and yaml files. Latter are automaticlaly detected by CLI based on extension: `.yaml` or `.yml`.
+Environment data can be read from both dotenv and YAML files. Latter are automaticlaly detected by CLI based on extension: `.yaml` or `.yml`.
+
+Example of configuration in env file:
+
+```
+HELLO=world
+TEST=100
+```
+
+Equivalent config with YAML:
+
+```yaml
+HELLO: world
+TEST: 100
+```
+
+### Per platform values
+
+When using YAML it is possible to specify values per platform:
+
+```yaml
+HELLO: world
+TEST: 100
+API_KEY:
+  ios: abcdef
+  android: tuvxyz
+```
+
+☝ both keys must exist in the mapping
 
 ## CLI
 
@@ -44,6 +73,10 @@ config.MY_CONFIG;
 `index.d.ts` file is generated according to consumed environment
 
 ## ios
+
+### Build settings
+
+All values from env file are exposed to Build Settings.
 
 ### Info.plist
 

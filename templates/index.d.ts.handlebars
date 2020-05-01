@@ -1,13 +1,13 @@
 // DO NOT COMMIT OR EDIT THIS FILE
 export interface ConfigVariables {
 {{#each @root}}
-{{#if (isString this)}}
+{{#if (isString (iosValue this))}}
   {{@key}}: string;
 {{/if}}
-{{#if (isBoolean this)}}
+{{#if (isBoolean (iosValue this))}}
   {{@key}}: boolean;
 {{/if}}
-{{#if (isNumber this)}}
+{{#if (isNumber (iosValue this))}}
   {{@key}}: number;
 {{/if}}
 {{/each}}

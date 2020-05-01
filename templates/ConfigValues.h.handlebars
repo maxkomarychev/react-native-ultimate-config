@@ -1,17 +1,17 @@
 // DO NOT COMMIT OR EDIT THIS FILE
 {{#each @root}}
-{{#if (isString this)}}
-#define {{@key}} @"{{{this}}}"
+{{#if (isString (iosValue this))}}
+#define {{@key}} @"{{{iosValue this}}}"
 {{/if}}
-{{#if (isBoolean this)}}
-{{#if this}}
+{{#if (isBoolean (iosValue this))}}
+{{#if (iosValue this)}}
 #define {{@key}} @(YES)
 {{else}}
 #define {{@key}} @(NO)
 {{/if}}
 {{/if}}
-{{#if (isNumber this)}}
-#define {{@key}} @({{{this}}})
+{{#if (isNumber (iosValue this))}}
+#define {{@key}} @({{{iosValue this}}})
 {{/if}}
 {{/each}}
 
