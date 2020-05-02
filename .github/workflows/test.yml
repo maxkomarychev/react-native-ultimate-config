@@ -25,9 +25,10 @@ jobs:
         working-directory: e2e
 
   test-android-basic-build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: sudo apt-get install -y libxml2-utils
       - run: yarn
       - run: npm pack
       - run: yarn
@@ -74,9 +75,10 @@ jobs:
         working-directory: e2e
 
   test-android-implicit-build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: sudo apt-get install -y libxml2-utils
       - run: yarn
       - run: npm pack
       - run: yarn
@@ -137,9 +139,10 @@ jobs:
         working-directory: example
         run: detox test --configuration ios.sim.release
   test-android-config:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: sudo apt-get install -y libxml2-utils
       - name: install dependencies - lib
         run: yarn
       - name: install dependencies - example
