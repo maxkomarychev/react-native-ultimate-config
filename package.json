@@ -20,8 +20,16 @@
     "ios",
     "android",
     "12factor",
+    "12factorapp",
+    "dotenv",
     "env",
-    "environment"
+    "environment",
+    "config",
+    "xcconfig",
+    "gradle",
+    "objective-c",
+    "java",
+    "typescript"
   ],
   "author": {
     "name": "Max Komarychev",
