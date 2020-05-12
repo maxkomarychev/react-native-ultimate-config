@@ -46,6 +46,7 @@ For advanced setup please refer to [cookbook](./cookbook.md)
 
    1. ios
 
+      1. run ```pod install```in folder `ios`
       1. open workspace
       1. open Finder in folder `ios`
       1. drag'n'drop generated file into project
