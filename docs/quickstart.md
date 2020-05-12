@@ -36,13 +36,13 @@ For advanced setup please refer to [cookbook](./cookbook.md)
 
 1. Generate files
 
-   generate env files for navite projects
+   generate env files for native projects
 
    | npm                 | yarn             |
    | ------------------- | ---------------- |
    | `npm run rnuc .env` | `yarn rnuc .env` |
 
-1. Configure navite projects (one-off setup)
+1. Configure native projects (one-off setup)
 
    1. ios
 
