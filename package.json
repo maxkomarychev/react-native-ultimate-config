@@ -52,5 +52,8 @@
     "handlebars": "^4.7.6",
     "js-yaml": "^3.13.1",
     "yargs": "^15.3.1"
+  },
+  "resolutions": {
+    "logkitty": "^0.7.1"
   }
 }
