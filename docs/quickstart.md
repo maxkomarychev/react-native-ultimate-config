@@ -92,6 +92,15 @@ For advanced setup please refer to [cookbook](./cookbook.md)
          }
          ```
 
+      3. If you are using ProGuard:
+         in `proguard-rules.pro` add
+
+         ```java
+         -keepclassmembers class [YOUR_GOOGLE_APPLICATION_NAME].BuildConfig {
+            public static <fields>;
+         }
+         ```
+
 1) save changes made to navite projects `.xcodeproj` file and `build.gradle`.
    **DO NOT COMMMIT** `rnuc.*` files.
 
