@@ -96,7 +96,7 @@ For advanced setup please refer to [cookbook](./cookbook.md)
          in `proguard-rules.pro` add
 
          ```java
-         -keepclassmembers class [YOUR_GOOGLE_APPLICATION_NAME].BuildConfig {
+         -keepclassmembers class <APPLICATION ID>.BuildConfig {
             public static <fields>;
          }
          ```
