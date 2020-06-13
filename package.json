@@ -4,8 +4,20 @@
   "version": "3.1.1",
   "description": "The ultimate config you ever need for your react-native app",
   "main": "index.js",
+  "files": [
+    "src/*.js",
+    "src/templates",
+    "ios/UltimateConfig.{h,m}",
+    "ios/ConfigValues.h",
+    "ios/UltimateConfig.xcodeproj/project.pbxproj",
+    "android/src",
+    "android/build.gradle",
+    "android/rnuc.gradle",
+    "react-native-ultimate-config.podspec"
+  ],
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prepack": "echo '#error \"invoke bin.js with env file before compiling native project\"' > ios/ConfigValues.h"
   },
   "bin": {
     "rnuc": "./bin.js"

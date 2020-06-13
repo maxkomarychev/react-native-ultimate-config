@@ -9,7 +9,7 @@ jest.doMock("../render-env", () => mock_render_env);
 const mock_write_env = jest.fn();
 jest.doMock("../write-env", () => mock_write_env);
 
-const main = require("../bin");
+const main = require("../main");
 
 const env_test_content = ``;
 
