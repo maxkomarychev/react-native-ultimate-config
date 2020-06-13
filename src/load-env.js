@@ -3,7 +3,7 @@ const yaml = require("js-yaml");
 const path = require("path");
 const fs = require("fs");
 
-function load_env(config_path) {
+module.exports = function (config_path) {
   const { ext } = path.parse(config_path);
   if (ext === ".yml" || ext === ".yaml") {
     const data = fs.readFileSync(config_path).toString();
@@ -12,5 +12,4 @@ function load_env(config_path) {
     const data = dotenv.config({ path: config_path });
     return data.parsed || {};
   }
-}
-module.exports = load_env;
+};

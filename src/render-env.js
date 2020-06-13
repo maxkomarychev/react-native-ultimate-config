@@ -50,7 +50,7 @@ function render_template(template_name, data) {
   return rendered;
 }
 
-function render_env(project_root, lib_root, env) {
+module.exports = function render_env(project_root, lib_root, env) {
   const map = {
     [path.join(lib_root, "index.d.ts")]: render_template("index.d.ts", env),
     [path.join(lib_root, "ios", `${code_file_name}.h`)]: render_template(
@@ -68,6 +68,4 @@ function render_env(project_root, lib_root, env) {
     )]: render_template("rnuc.xcconfig", env),
   };
   return map;
-}
-
-module.exports = render_env;
+};

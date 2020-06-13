@@ -45,6 +45,7 @@ buck-out/
 /index.d.ts
 /android/rnuc.yaml
 rnuc.xcconfig
+!/src/__tests__/outputs/*
 
 # Jest
 coverage
