@@ -8,6 +8,7 @@
     "src/*.js",
     "src/templates",
     "ios/UltimateConfig.{h,m}",
+    "ios/ConfigValues.h",
     "android/src",
     "android/build.gradle",
     "android/rnuc.gradle"
