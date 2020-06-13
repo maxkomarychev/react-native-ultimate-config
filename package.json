@@ -11,7 +11,8 @@
     "ios/ConfigValues.h",
     "android/src",
     "android/build.gradle",
-    "android/rnuc.gradle"
+    "android/rnuc.gradle",
+    "react-native-ultimate-config.podspec"
   ],
   "scripts": {
     "test": "jest",
