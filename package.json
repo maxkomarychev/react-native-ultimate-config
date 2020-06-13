@@ -13,7 +13,8 @@
     "android/rnuc.gradle"
   ],
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prepack": "echo '#error \"invoke bin.js with env file before compiling native project\"' > ios/ConfigValues.h"
   },
   "bin": {
     "rnuc": "./bin.js"
