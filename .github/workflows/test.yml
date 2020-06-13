@@ -32,9 +32,12 @@ jobs:
       - run: sudo apt-get install -y libxml2-utils
       - run: yarn
       - run: npm pack
+      - run: tar -tvf *.tgz
       - run: yarn
         working-directory: e2e/basic
       - run: yarn add ../../*.tgz
+        working-directory: e2e/basic
+      - run: ls -l node_modules/react-native-ultimate-config/
         working-directory: e2e/basic
       - run: yarn rnuc .env
         working-directory: e2e/basic
@@ -59,6 +62,8 @@ jobs:
       - run: yarn
         working-directory: e2e/implicit
       - run: yarn add ../../*.tgz
+        working-directory: e2e/implicit
+      - run: ls -l node_modules/react-native-ultimate-config/
         working-directory: e2e/implicit
       - run: pod install
         working-directory: e2e/implicit/ios
