@@ -7,6 +7,14 @@
   "scripts": {
     "test": "jest"
   },
+  "files": [
+    "ios/*.{h,m}",
+    "react-native-ultimate-config.podspec",
+    "templates",
+    "*.js",
+    "android/src",
+    "android/*.gradle"
+  ],
   "bin": {
     "rnuc": "./bin.js"
   },
