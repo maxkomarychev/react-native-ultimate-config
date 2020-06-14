@@ -23,7 +23,6 @@ static void InitializeFlipper(UIApplication *application) {
 }
 #endif
 
-
 #import <react-native-ultimate-config/ConfigValues.h>
 
 @implementation AppDelegate
