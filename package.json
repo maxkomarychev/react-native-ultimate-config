@@ -9,6 +9,7 @@
   },
   "files": [
     "ios/*.{h,m}",
+    "ios/UltimateConfig.xcodeproj/project.pbxproj",
     "react-native-ultimate-config.podspec",
     "templates",
     "*.js",
