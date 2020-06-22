@@ -6,6 +6,7 @@
 #define MY_BOOLEAN @(YES)
 #define MY_BOOLEAN_FALSE @(NO)
 #define PER_PLATFORM @"hello"
+#define QUOTES @"hello \"world'"
 
 static NSDictionary *getValues() {
     return @{
@@ -16,5 +17,6 @@ static NSDictionary *getValues() {
         @"MY_BOOLEAN": MY_BOOLEAN,
         @"MY_BOOLEAN_FALSE": MY_BOOLEAN_FALSE,
         @"PER_PLATFORM": PER_PLATFORM,
+        @"QUOTES": QUOTES,
     };
 }

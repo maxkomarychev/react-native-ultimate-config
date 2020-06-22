@@ -156,6 +156,7 @@ jobs:
           ./gradlew assembleDebug
         working-directory: example
       - name: Test if config has been injected
+        working-directory: example
         run: |
           grep 'public static final String APP_NAME = "RNUC Demo"' android/app/build/generated/source/buildConfig/debug/com/example/BuildConfig.java
           grep 'public static final String STRING_VALUE = "hello"' android/app/build/generated/source/buildConfig/debug/com/example/BuildConfig.java
@@ -167,7 +168,6 @@ jobs:
           grep BOOLEAN_VALUE android/app/build/generated/not_namespaced_r_class_sources/debug/r/com/example/R.java
           grep NUMBER_VALUE android/app/build/generated/not_namespaced_r_class_sources/debug/r/com/example/R.java
           grep "RNUC Demo" android/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml
-        working-directory: example
   unittest:
     runs-on: ubuntu-latest
     steps:

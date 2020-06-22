@@ -1,6 +1,6 @@
 {{#each @root}}
 {{#if (isString (androidValue this))}}
-{{@key}}: "{{{androidValue this}}}"
+{{@key}}: "{{{escape (androidValue this)}}}"
 {{else}}
 {{@key}}: {{{androidValue this}}}
 {{/if}}

@@ -21,6 +21,7 @@ describe("render_env", () => {
       MY_BOOLEAN: true,
       MY_BOOLEAN_FALSE: false,
       PER_PLATFORM: { ios: "hello", android: "world" },
+      QUOTES: "hello \"world'",
     });
   });
 

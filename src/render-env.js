@@ -5,6 +5,18 @@ const fs = require("fs");
 const code_file_name = "ConfigValues";
 const config_file_name = "rnuc";
 
+function is_string(value) {
+  return typeof value === "string";
+}
+
+function is_number(value) {
+  return typeof value === "number";
+}
+
+function is_boolean(value) {
+  return typeof value === "boolean";
+}
+
 function ios_value(value) {
   if (is_string(value) || is_number(value) || is_boolean(value)) {
     return value;
@@ -21,16 +33,12 @@ function android_value(value) {
   }
 }
 
-function is_string(value) {
-  return typeof value === "string";
-}
-
-function is_number(value) {
-  return typeof value === "number";
-}
-
-function is_boolean(value) {
-  return typeof value === "boolean";
+function escape(value) {
+  if (is_string(value)) {
+    return value.replace(/"/gm, '\\"');
+  } else {
+    return value;
+  }
 }
 
 function render_template(template_name, data) {
@@ -40,11 +48,12 @@ function render_template(template_name, data) {
     `${template_name}.handlebars`
   );
   const template_string = fs.readFileSync(template_path).toString();
-  handlebars.registerHelper("iosValue", ios_value);
-  handlebars.registerHelper("androidValue", android_value);
   handlebars.registerHelper("isBoolean", is_boolean);
   handlebars.registerHelper("isString", is_string);
   handlebars.registerHelper("isNumber", is_number);
+  handlebars.registerHelper("iosValue", ios_value);
+  handlebars.registerHelper("androidValue", android_value);
+  handlebars.registerHelper("escape", escape);
   const parsed_template = handlebars.compile(template_string);
   const rendered = parsed_template(data);
   return rendered;

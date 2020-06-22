@@ -1,7 +1,7 @@
 // DO NOT COMMIT OR EDIT THIS FILE
 {{#each @root}}
 {{#if (isString (iosValue this))}}
-#define {{@key}} @"{{{iosValue this}}}"
+#define {{@key}} @"{{{escape (iosValue this)}}}"
 {{/if}}
 {{#if (isBoolean (iosValue this))}}
 {{#if (iosValue this)}}

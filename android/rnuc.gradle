@@ -75,6 +75,13 @@ def configPerFlavor(flavorName, rootConfig) {
     }
 }
 
+def escape_double(str) {
+    return str.replace('"', '\\"')
+}
+def escape_single(str) {
+    return str.replace("'", "\\'")
+}
+
 android {
     // patch all variants with config values
     applicationVariants.all { variant ->
@@ -92,8 +99,8 @@ android {
 
         cfg.each { k,v -> 
             if (v instanceof java.lang.String) {
-                variant.buildConfigField "String", k, "\"${v}\""
-                variant.resValue "string", k, "\"${v}\""
+                variant.buildConfigField "String", k, "\"${escape_double(v)}\""
+                variant.resValue "string", k, "${escape_single(v)}"
             } else if (v instanceof Integer) {
                 variant.buildConfigField "int", k, "${v}"
                 variant.resValue "integer", k, "${v}"
