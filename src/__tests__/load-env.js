@@ -30,4 +30,28 @@ describe("load-env", () => {
     expect(mockYaml).toHaveBeenCalledWith("data");
     expect(result).toEqual({ hello: "world" });
   });
+  describe.each`
+    extension
+    ${"yml"}
+    ${"yaml"}
+  `(
+    "throw when yaml is not an object with extension '$extension'",
+    ({ extension }) => {
+      it.each`
+        content
+        ${"abc:def"}
+        ${false}
+        ${true}
+        ${42}
+        ${null}
+        ${undefined}
+      `("when content is '$content'", ({ content }) => {
+        mockReadFileSync.mockReturnValueOnce(new Buffer("data"));
+        mockYaml.mockReturnValueOnce(content);
+        expect(() => {
+          load_env(`hello.${extension}`);
+        }).toThrow();
+      });
+    }
+  );
 });

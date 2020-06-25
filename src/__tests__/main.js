@@ -11,8 +11,6 @@ jest.doMock("../write-env", () => mock_write_env);
 
 const main = require("../main");
 
-const env_test_content = ``;
-
 const files_to_assert = [
   "ios/rnuc.xcconfig",
   "node_modules/react-native-ultimate-config/ios/ConfigValues.h",
@@ -21,14 +19,14 @@ const files_to_assert = [
 ];
 
 describe.each`
-  extension
-  ${""}
-  ${".yaml"}
-  ${".yml"}
-`("test codegen", ({ extension }) => {
+  extension  | env_test_content
+  ${""}      | ${"hello=world"}
+  ${".yaml"} | ${"hello: world"}
+  ${".yml"}  | ${"hello: world"}
+`("test codegen", ({ extension, env_test_content }) => {
   let project_root;
   beforeAll(() => {
-    project_root = fs.mkdtempSync("rnuc-jest");
+    project_root = path.join(process.cwd(), fs.mkdtempSync("rnuc-jest"));
     for (const file_path of files_to_assert) {
       const { dir } = path.parse(file_path);
       const folder = path.join(project_root, dir);
@@ -41,11 +39,9 @@ describe.each`
   it.each(files_to_assert.map((k) => [k]))(
     "creates file at path %s",
     (file_path) => {
-      fs.writeFileSync(
-        path.join(project_root, `.env${extension}`),
-        env_test_content
-      );
-      cp.execFileSync(path.join(process.cwd(), "bin.js"), [".env"], {
+      const env_file_path = path.join(project_root, `.env${extension}`);
+      fs.writeFileSync(env_file_path, env_test_content);
+      cp.execFileSync(path.join(process.cwd(), "bin.js"), [env_file_path], {
         cwd: project_root,
       });
       expect(fs.existsSync(path.join(project_root, file_path))).toEqual(true);

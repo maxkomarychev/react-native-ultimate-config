@@ -19,6 +19,16 @@ def readYaml(yamlPath) {
                 .toString()
                 ).newInputStream() 
             )
+    if (
+        cfg instanceof String
+    || cfg instanceof Integer
+    || cfg instanceof Double
+    || cfg instanceof Boolean
+    ) {
+        throw new GradleException("could not read object from ${yamlPath} but got '${cfg.class.name}'")
+    } else if (cfg == null) {
+        throw new GradleException("could not read object from ${yamlPath} but got 'null'")
+    }
     return cfg
 }
 
@@ -43,7 +53,7 @@ def flattenConfig(cfg) {
     def result = [:]
     cfg.each { k,v ->
         if (
-            v instanceof java.lang.String
+            v instanceof String
         || v instanceof Integer
         || v instanceof Double
         || v instanceof Boolean
