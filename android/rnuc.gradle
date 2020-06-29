@@ -39,7 +39,8 @@ def buildRootConfig() {
         def flavorMapping = project.ext.get('flavorEnvMapping')
         println "Flavor mapping detected: ${flavorMapping}"
         flavorMapping.each { flavor, yamlPath -> 
-            config.put(flavor, readYaml(Paths.get(yamlPath)))
+            def absolutePath = Paths.get(project.rootDir.getAbsolutePath(), yamlPath)
+            config.put(flavor, readYaml(absolutePath))
         }
         return config
     } else {
