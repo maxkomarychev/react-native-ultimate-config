@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.5](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.1.4...v3.1.5) (2020-06-29)
+
+
+### Bug Fixes
+
+* **android:** look up yamls against project root ([94a5d7d](https://github.com/maxkomarychev/react-native-ultimate-config/commit/94a5d7d7894b8b891229e5df0171fe61356a4e71))
+
 ### [3.1.4](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.1.3...v3.1.4) (2020-06-26)
 
 

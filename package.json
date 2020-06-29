@@ -1,7 +1,7 @@
 {
   "name": "react-native-ultimate-config",
   "title": "React Native Ultimate Config",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "description": "The ultimate config you ever need for your react-native app",
   "main": "index.js",
   "files": [
