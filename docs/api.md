@@ -4,6 +4,7 @@ Table of contents
 
 1. [Files](#files)
 1. [CLI](#cli)
+   1. [Advanced options for monorepo](#advanced-options-for-monorepo)
 1. [Javascript](#javascript)
 1. [Typescript](#typescript)
 1. [ios](#ios)
@@ -55,6 +56,26 @@ Inject environment data with a single command:
 | npm                  | yarn             |
 | -------------------- | ---------------- |
 | `npm yarn rnuc .env` | `yarn rnuc .env` |
+
+### Advanced options for monorepo
+
+1. `--project-root`: path to the root of the project for which injection is performed
+1. `--lib-root`: path to where library is installed
+
+Considering typical monorepo folder structure:
+
+```
+- node_modules
+   - react-native-ultimate-config
+- packages
+   - my_app
+```
+
+When injecting config for `my_app` the command should be:
+
+```bash
+yarn rnuc --project-root . --lib-root ../../node_modules/react-native-ultimate-config .env
+```
 
 ## Javascript
 

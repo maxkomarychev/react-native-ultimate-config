@@ -42,6 +42,7 @@ Therefore every time this library is updated all files MUST be regenerated using
 1. Access from [javascript](./docs/api.md#javascript)
 1. Access from native code: [java](./docs/api.md#java) and [objective-c](./docs/api.md#objective-c)
 1. Access in build tools: [xcode](./docs/api.md#ios), [gradle](./docs/api.md#buildgradle) and [AndroidManifest.xml](./docs/api.md#androidmanifestxml)
+1. [Monorepo support](./docs/api.md#advanced-options-for-monorepo) (yarn workspaces or lerna)
 1. Unit tested with jest
 1. E2E tested with detox
 1. Provides typescript [typings](./docs/api.md#typescript)

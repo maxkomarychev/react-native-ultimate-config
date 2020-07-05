@@ -18,7 +18,8 @@ A clear and concise description of what the bug is.
 
 Steps to reproduce the behavior.
 
-Link to github repository if possible.
+Please consider creating small project that demonstrates the problem.
+Having done clean setup helps pinpointing the problem.
 
 # Expected behavior
 
@@ -39,6 +40,8 @@ is better.
       option from cookbook:
       [scheme](../../docs/cookbook.md#using-multiple-schemes-ios),
       [flavors](../../docs/cookbook.md#using-multiple-flavors-android))
+- [ ] I am using `react-native-ultimate-config` within monorepo managed with
+      Lerna or Yarn Workspaces [Monorepo support](../../docs/api.md#advanced-options-for-monorepo)
 
 ## OS
 
