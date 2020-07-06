@@ -1,27 +1,8 @@
 {
+  "private": true,
   "workspaces": {
     "packages": [
       "packages/*"
     ]
-  },
-  "name": "react-native-ultimate-config",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "example": "example"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/maxkomarychev/react-native-ultimate-config.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/maxkomarychev/react-native-ultimate-config/issues"
-  },
-  "homepage": "https://github.com/maxkomarychev/react-native-ultimate-config#readme"
+  }
 }
