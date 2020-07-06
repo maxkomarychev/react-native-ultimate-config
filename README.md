@@ -2,6 +2,8 @@
 
 _The ultimate config you ever need for your react-native app_
 
+![npm](https://img.shields.io/npm/dw/react-native-ultimate-config)
+
 _Project generated with https://github.com/brodybits/create-react-native-module_
 
 ## TL;DR usage
