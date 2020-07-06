@@ -42,10 +42,10 @@ buck-out/
 *.keystore
 
 # Codegen
-/index.d.ts
-/android/rnuc.yaml
+index.d.ts
+android/rnuc.yaml
 rnuc.xcconfig
-!/src/__tests__/outputs/*
+!packages/react-native-ultimate-config/src/__tests__/outputs/*
 
 # Jest
 coverage
