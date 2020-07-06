@@ -4,5 +4,8 @@
     "packages": [
       "packages/*"
     ]
+  },
+  "scripts": {
+    "lib:test": "yarn workspace react-native-ultimate-config run test"
   }
 }
