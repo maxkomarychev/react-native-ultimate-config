@@ -1,71 +1,27 @@
 {
-  "name": "react-native-ultimate-config",
-  "title": "React Native Ultimate Config",
-  "version": "3.1.6",
-  "description": "The ultimate config you ever need for your react-native app",
-  "main": "index.js",
-  "files": [
-    "src/*.js",
-    "src/templates",
-    "ios/UltimateConfig.{h,m}",
-    "ios/ConfigValues.h",
-    "ios/UltimateConfig.xcodeproj/project.pbxproj",
-    "android/src",
-    "android/build.gradle",
-    "android/rnuc.gradle",
-    "react-native-ultimate-config.podspec"
-  ],
-  "scripts": {
-    "test": "jest",
-    "prepack": "echo '#error \"invoke bin.js with env file before compiling native project\"' > ios/ConfigValues.h"
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
   },
-  "bin": {
-    "rnuc": "./bin.js"
+  "name": "react-native-ultimate-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maxkomarychev/react-native-ultimate-config.git",
-    "baseUrl": "https://github.com/maxkomarychev/react-native-ultimate-config"
+    "url": "git+https://github.com/maxkomarychev/react-native-ultimate-config.git"
   },
-  "keywords": [
-    "react-native",
-    "ios",
-    "android",
-    "12factor",
-    "12factorapp",
-    "dotenv",
-    "env",
-    "environment",
-    "config",
-    "xcconfig",
-    "gradle",
-    "objective-c",
-    "java",
-    "typescript"
-  ],
-  "author": {
-    "name": "Max Komarychev",
-    "email": "maxkomarychev@gmail.com"
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxkomarychev/react-native-ultimate-config/issues"
   },
-  "license": "MIT",
-  "licenseFilename": "LICENSE",
-  "readmeFilename": "README.md",
-  "peerDependencies": {
-    "react": "^16.8.1",
-    "react-native": ">=0.60.0-rc.0 <1.0.x"
-  },
-  "devDependencies": {
-    "jest": "^25.3.0",
-    "react": "^16.9.0",
-    "react-native": "^0.61.5"
-  },
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "handlebars": "^4.7.6",
-    "js-yaml": "^3.13.1",
-    "yargs": "^15.3.1"
-  },
-  "resolutions": {
-    "logkitty": "^0.7.1"
-  }
+  "homepage": "https://github.com/maxkomarychev/react-native-ultimate-config#readme"
 }
