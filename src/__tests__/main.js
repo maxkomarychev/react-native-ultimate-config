@@ -77,4 +77,77 @@ describe("main", () => {
     );
     expect(mock_write_env).toHaveBeenCalledWith({ hello: "world" });
   });
+  describe.only("rc.on_env", () => {
+    it("invoke rc hook with config before flattening", () => {
+      const on_env = jest.fn();
+      // const mock_writeFileSync = jest.fn();
+      // jest.doMock("fs", () => ({ writeFileSync: mock_writeFileSync }));
+      mock_load_env.mockReturnValueOnce({ data: true });
+      // mock_flatten.mockReturnValueOnce({ data: true, ios: true });
+      // mock_flatten.mockReturnValueOnce({ data: true, android: true });
+      // mock_render_env.mockReturnValueOnce({ hello: "world" });
+      main(
+        "project",
+        "project/node_modules/react-native-ultimate-config",
+        "file",
+        { on_env }
+      );
+      expect(on_env).toHaveBeenCalledWith({ data: true });
+      // expect(mock_load_env).toHaveBeenCalledWith("file");
+      expect(mock_flatten).toHaveBeenCalledWith({ data: true }, "ios");
+      expect(mock_flatten).toHaveBeenCalledWith({ data: true }, "android");
+      // expect(mock_render_env).toHaveBeenCalledWith(
+      //   "project",
+      //   "project/node_modules/react-native-ultimate-config",
+      //   {
+      //     ios: { data: true, ios: true },
+      //     android: { data: true, android: true },
+      //   }
+      // );
+      // expect(mock_write_env).toHaveBeenCalledWith({ hello: "world" });
+    });
+    it("hook can add or remove values", () => {
+      const on_env = jest.fn();
+      on_env.mockImplementation((env) => {
+        const { key1, ...rest } = env;
+        // delete env.key1;
+        // env.key2 = "hello";
+        return {
+          ...rest,
+          key2: "hello",
+        };
+      });
+      // const mock_writeFileSync = jest.fn();
+      // jest.doMock("fs", () => ({ writeFileSync: mock_writeFileSync }));
+      mock_load_env.mockReturnValueOnce({ data: true, key1: "bye" });
+      // mock_flatten.mockReturnValueOnce({ data: true, ios: true });
+      // mock_flatten.mockReturnValueOnce({ data: true, android: true });
+      // mock_render_env.mockReturnValueOnce({ hello: "world" });
+      main(
+        "project",
+        "project/node_modules/react-native-ultimate-config",
+        "file",
+        { on_env }
+      );
+      expect(on_env).toHaveBeenCalledWith({ data: true, key1: "bye" });
+      // expect(mock_load_env).toHaveBeenCalledWith("file");
+      expect(mock_flatten).toHaveBeenCalledWith(
+        { data: true, key2: "hello" },
+        "ios"
+      );
+      expect(mock_flatten).toHaveBeenCalledWith(
+        { data: true, key2: "hello" },
+        "android"
+      );
+      // expect(mock_render_env).toHaveBeenCalledWith(
+      //   "project",
+      //   "project/node_modules/react-native-ultimate-config",
+      //   {
+      //     ios: { data: true, ios: true },
+      //     android: { data: true, android: true },
+      //   }
+      // );
+      // expect(mock_write_env).toHaveBeenCalledWith({ hello: "world" });
+    });
+  });
 });
