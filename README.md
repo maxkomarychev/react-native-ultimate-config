@@ -34,7 +34,6 @@ Therefore every time this library is updated all files MUST be regenerated using
 1. [API 🧰](./docs/api.md)
 1. [Changelog 📓](./CHANGELOG.md)
 1. [Cookbook 🥦](./docs/cookbook.md)
-1. [Alternatives](#alternatives)
 1. [Dev notes](./docs/devnotes.md)
 
 ## Features
