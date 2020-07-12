@@ -8,6 +8,8 @@ const mock_render_env = jest.fn();
 jest.doMock("../render-env", () => mock_render_env);
 const mock_write_env = jest.fn();
 jest.doMock("../write-env", () => mock_write_env);
+const mock_flatten = jest.fn();
+jest.doMock("../flatten", () => mock_flatten);
 
 const main = require("../main");
 
@@ -54,6 +56,8 @@ describe("main", () => {
     const mock_writeFileSync = jest.fn();
     jest.doMock("fs", () => ({ writeFileSync: mock_writeFileSync }));
     mock_load_env.mockReturnValueOnce({ data: true });
+    mock_flatten.mockReturnValueOnce({ data: true, ios: true });
+    mock_flatten.mockReturnValueOnce({ data: true, android: true });
     mock_render_env.mockReturnValueOnce({ hello: "world" });
     main(
       "project",
@@ -61,10 +65,15 @@ describe("main", () => {
       "file"
     );
     expect(mock_load_env).toHaveBeenCalledWith("file");
+    expect(mock_flatten).toHaveBeenCalledWith({ data: true }, "ios");
+    expect(mock_flatten).toHaveBeenCalledWith({ data: true }, "android");
     expect(mock_render_env).toHaveBeenCalledWith(
       "project",
       "project/node_modules/react-native-ultimate-config",
-      { data: true }
+      {
+        ios: { data: true, ios: true },
+        android: { data: true, android: true },
+      }
     );
     expect(mock_write_env).toHaveBeenCalledWith({ hello: "world" });
   });
