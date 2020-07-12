@@ -6,8 +6,8 @@ export interface ConfigVariables {
   MY_NUMBER: number;
   MY_BOOLEAN: boolean;
   MY_BOOLEAN_FALSE: boolean;
-  PER_PLATFORM: string;
   QUOTES: string;
+  PER_PLATFORM: string;
 }
 
 declare const UltimateConfig: ConfigVariables;

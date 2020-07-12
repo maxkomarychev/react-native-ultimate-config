@@ -12,6 +12,7 @@ typical tasks
 1. [Deeplink](#deeplink)
 1. [Using multiple schemes (ios)](#using-multiple-schemes-ios)
 1. [Using multiple flavors (android)](#using-multiple-flavors-android)
+1. [Generate fastlane dotenv](#generate-fastlane-dotenv)
 
 ## Application name
 
@@ -214,3 +215,24 @@ Assuming you want to support multiple flavors of the app: "dev" and "staging".
    pick up all configs per flavor names. Whenever gradle is configuring tasks
    it will read env data from files and populate resources, build config and
    manifest placeholders from them.
+
+## Generate fastlane dotenv
+
+1. Create rc file `touch .rnucrc.js`
+1. Add hook code:
+
+   ```js
+   const fs = require("fs");
+   module.exports = {
+     on_env: async function (env) {
+       if (fs.existsSync("./ios/fastlane")) {
+         const writer = fs.createWriteStream("./ios/fastlane/.env");
+         for (const key in env) {
+           writer.write(`${key}=${env[key]}\n`);
+         }
+         writer.close();
+       }
+       // repeat for android
+     },
+   };
+   ```

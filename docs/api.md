@@ -5,6 +5,7 @@ Table of contents
 1. [Files](#files)
 1. [CLI](#cli)
    1. [Advanced options for monorepo](#advanced-options-for-monorepo)
+   1. [Hooks](#hooks)
 1. [Javascript](#javascript)
 1. [Typescript](#typescript)
 1. [ios](#ios)
@@ -75,6 +76,22 @@ When injecting config for `my_app` the command should be:
 
 ```bash
 yarn rnuc --project-root . --lib-root ../../node_modules/react-native-ultimate-config .env
+```
+
+### Hooks
+
+When file `.rnucrc.js` exists in project root it will be loaded when
+`rnuc` CLI is executed. A single function `on_env` will be invoked with env
+data loaded from the file. Object returned from the function will be used
+instead of original env data. When function returns `undefined` original data
+will be used.
+
+```js
+module.exports = {
+  on_env: async function (env) {
+    // this will be invoked with data of loaded env file
+  },
+};
 ```
 
 ## Javascript

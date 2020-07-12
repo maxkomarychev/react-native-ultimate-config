@@ -17,22 +17,6 @@ function is_boolean(value) {
   return typeof value === "boolean";
 }
 
-function ios_value(value) {
-  if (is_string(value) || is_number(value) || is_boolean(value)) {
-    return value;
-  } else {
-    return value.ios;
-  }
-}
-
-function android_value(value) {
-  if (is_string(value) || is_number(value) || is_boolean(value)) {
-    return value;
-  } else {
-    return value.android;
-  }
-}
-
 function escape(value) {
   if (is_string(value)) {
     return value.replace(/"/gm, '\\"');
@@ -51,8 +35,6 @@ function render_template(template_name, data) {
   handlebars.registerHelper("isBoolean", is_boolean);
   handlebars.registerHelper("isString", is_string);
   handlebars.registerHelper("isNumber", is_number);
-  handlebars.registerHelper("iosValue", ios_value);
-  handlebars.registerHelper("androidValue", android_value);
   handlebars.registerHelper("escape", escape);
   const parsed_template = handlebars.compile(template_string);
   const rendered = parsed_template(data);
@@ -60,21 +42,22 @@ function render_template(template_name, data) {
 }
 
 module.exports = function render_env(project_root, lib_root, env) {
+  const { ios, android } = env;
   const map = {
-    [path.join(lib_root, "index.d.ts")]: render_template("index.d.ts", env),
+    [path.join(lib_root, "index.d.ts")]: render_template("index.d.ts", ios),
     [path.join(lib_root, "ios", `${code_file_name}.h`)]: render_template(
       "ConfigValues.h",
-      env
+      ios
     ),
     [path.join(lib_root, "android", `rnuc.yaml`)]: render_template(
       "rnuc.yaml",
-      env
+      android
     ),
     [path.join(
       project_root,
       "ios",
       `${config_file_name}.xcconfig`
-    )]: render_template("rnuc.xcconfig", env),
+    )]: render_template("rnuc.xcconfig", ios),
   };
   return map;
 };

@@ -13,15 +13,26 @@ const XCCONFIG_FILE = `${PROJECT_ROOT}/ios/rnuc.xcconfig`;
 describe("render_env", () => {
   let map = undefined;
   beforeEach(() => {
-    map = render_env(PROJECT_ROOT, LIB_ROOT, {
+    const config_default = {
       MY_VARIABLE: "hello",
       MY_URL: "http://hello.world?howareyoudoing=ok",
       MY_STRING: "string_value",
       MY_NUMBER: 42,
       MY_BOOLEAN: true,
       MY_BOOLEAN_FALSE: false,
-      PER_PLATFORM: { ios: "hello", android: "world" },
       QUOTES: "hello \"world'",
+    };
+    const config_ios = {
+      ...config_default,
+      PER_PLATFORM: "hello",
+    };
+    const config_android = {
+      ...config_default,
+      PER_PLATFORM: "world",
+    };
+    map = render_env(PROJECT_ROOT, LIB_ROOT, {
+      ios: config_ios,
+      android: config_android,
     });
   });
 
