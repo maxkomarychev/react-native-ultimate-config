@@ -1,6 +1,6 @@
 # react-native-ultimate-config
 
-_The ultimate config you ever need for your react-native app_
+_Config that works_
 
 ![npm](https://img.shields.io/npm/dw/react-native-ultimate-config)
 
@@ -100,10 +100,3 @@ every place of a typical react-native app:
 |                          |                            |
 |-------------------------------------------------------|
 ```
-
-## Alternatives
-
-| project                                                                 | comparison                                                                 |
-| ----------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| [react-native-dotenv](https://github.com/zetachang/react-native-dotenv) | Javascript only. Does not allow to configure native counterpart of the app |
-| [react-native-config](https://github.com/luggit/react-native-config)    | Allows configuring native and javascript                                   |
