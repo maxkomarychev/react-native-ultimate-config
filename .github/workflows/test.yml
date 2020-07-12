@@ -48,6 +48,10 @@ jobs:
           ./scripts/assert-android-build-config.sh basic/android/ debug com/basic BUNDLE_ID '"rnuc.basic"'
           ./scripts/assert-android-resvalues.sh  basic/android/ debug BUNDLE_ID "rnuc.basic"
           ./scripts/assert-android-r.sh basic/android/ debug com/basic BUNDLE_ID
+
+          ./scripts/assert-android-build-config.sh basic/android/ debug com/basic CUSTOM_VARIABLE '"I am from rc"'
+          ./scripts/assert-android-resvalues.sh  basic/android/ debug CUSTOM_VARIABLE "I am from rc"
+          ./scripts/assert-android-r.sh basic/android/ debug com/basic CUSTOM_VARIABLE
         working-directory: e2e
 
   test-ios-implicit-build:
