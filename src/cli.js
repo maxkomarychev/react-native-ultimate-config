@@ -2,6 +2,7 @@
 
 const yargs = require("yargs");
 const path = require("path");
+const fs = require("fs");
 const main = require("./main");
 
 module.exports = async function () {
@@ -15,5 +16,11 @@ module.exports = async function () {
 
   const env_file = yargs.argv._[0];
 
-  await main(project_root, lib_root, env_file);
+  const abc = path.resolve(project_root, ".rnucrc.js");
+  if (fs.existsSync(abc)) {
+    const rc = require(abc);
+    await main(project_root, lib_root, env_file, rc);
+  } else {
+    await main(project_root, lib_root, env_file);
+  }
 };
