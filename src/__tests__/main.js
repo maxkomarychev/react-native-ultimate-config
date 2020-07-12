@@ -52,14 +52,14 @@ describe.each`
 });
 
 describe("main", () => {
-  it("execute render with paths", () => {
+  it("execute render with paths", async () => {
     const mock_writeFileSync = jest.fn();
     jest.doMock("fs", () => ({ writeFileSync: mock_writeFileSync }));
     mock_load_env.mockReturnValueOnce({ data: true });
     mock_flatten.mockReturnValueOnce({ data: true, ios: true });
     mock_flatten.mockReturnValueOnce({ data: true, android: true });
     mock_render_env.mockReturnValueOnce({ hello: "world" });
-    main(
+    await main(
       "project",
       "project/node_modules/react-native-ultimate-config",
       "file"
@@ -78,10 +78,10 @@ describe("main", () => {
     expect(mock_write_env).toHaveBeenCalledWith({ hello: "world" });
   });
   describe("rc.on_env", () => {
-    it("invoke rc hook with config before flattening", () => {
+    it("invoke rc hook with config before flattening", async () => {
       const on_env = jest.fn();
       mock_load_env.mockReturnValueOnce({ data: true });
-      main(
+      await main(
         "project",
         "project/node_modules/react-native-ultimate-config",
         "file",
@@ -91,7 +91,7 @@ describe("main", () => {
       expect(mock_flatten).toHaveBeenCalledWith({ data: true }, "ios");
       expect(mock_flatten).toHaveBeenCalledWith({ data: true }, "android");
     });
-    it("hook can add or remove values", () => {
+    it("hook can add or remove values", async () => {
       const on_env = jest.fn();
       on_env.mockImplementation((env) => {
         const { key1, ...rest } = env;
@@ -101,7 +101,7 @@ describe("main", () => {
         };
       });
       mock_load_env.mockReturnValueOnce({ data: true, key1: "bye" });
-      main(
+      await main(
         "project",
         "project/node_modules/react-native-ultimate-config",
         "file",

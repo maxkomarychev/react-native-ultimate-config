@@ -3,17 +3,17 @@ const render_env = require("./render-env");
 const write_env = require("./write-env");
 const flatten = require("./flatten");
 
-function resolve_env(env, rc) {
+async function resolve_env(env, rc) {
   if (rc && rc.on_env) {
-    const patched_env = rc.on_env(env);
+    const patched_env = await rc.on_env(env);
     return patched_env || env;
   } else {
     return env;
   }
 }
 
-module.exports = function (project_root, lib_root, env_file, rc) {
-  const env = resolve_env(load_env(env_file), rc);
+module.exports = async function (project_root, lib_root, env_file, rc) {
+  const env = await resolve_env(load_env(env_file), rc);
   const flat = {
     ios: flatten(env, "ios"),
     android: flatten(env, "android"),
