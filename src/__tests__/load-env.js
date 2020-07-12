@@ -23,7 +23,7 @@ describe("load-env", () => {
     ${"yml"}
     ${"yaml"}
   `("reads yaml when extension is '$extension'", ({ extension }) => {
-    mockReadFileSync.mockReturnValueOnce(new Buffer("data"));
+    mockReadFileSync.mockReturnValueOnce(Buffer.from("data"));
     mockYaml.mockReturnValueOnce({ hello: "world" });
     const result = load_env(`hello.${extension}`);
     expect(mockReadFileSync).toHaveBeenCalledWith(`hello.${extension}`);
@@ -46,7 +46,7 @@ describe("load-env", () => {
         ${null}
         ${undefined}
       `("when content is '$content'", ({ content }) => {
-        mockReadFileSync.mockReturnValueOnce(new Buffer("data"));
+        mockReadFileSync.mockReturnValueOnce(Buffer.from("data"));
         mockYaml.mockReturnValueOnce(content);
         expect(() => {
           load_env(`hello.${extension}`);
