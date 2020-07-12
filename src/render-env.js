@@ -17,22 +17,6 @@ function is_boolean(value) {
   return typeof value === "boolean";
 }
 
-function ios_value(value) {
-  if (is_string(value) || is_number(value) || is_boolean(value)) {
-    return value;
-  } else {
-    return value.ios;
-  }
-}
-
-function android_value(value) {
-  if (is_string(value) || is_number(value) || is_boolean(value)) {
-    return value;
-  } else {
-    return value.android;
-  }
-}
-
 function escape(value) {
   if (is_string(value)) {
     return value.replace(/"/gm, '\\"');
@@ -51,8 +35,6 @@ function render_template(template_name, data) {
   handlebars.registerHelper("isBoolean", is_boolean);
   handlebars.registerHelper("isString", is_string);
   handlebars.registerHelper("isNumber", is_number);
-  handlebars.registerHelper("iosValue", ios_value);
-  handlebars.registerHelper("androidValue", android_value);
   handlebars.registerHelper("escape", escape);
   const parsed_template = handlebars.compile(template_string);
   const rendered = parsed_template(data);
