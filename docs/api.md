@@ -80,11 +80,19 @@ yarn rnuc --project-root . --lib-root ../../node_modules/react-native-ultimate-c
 
 ### Hooks
 
-When file `.rnucrc.js` exists in root of the project it project root it will
-be loaded when `rnuc` CLI is executed. A single function `on_env` will be
-invoked with env data loaded from the file. Object returned from the function
-will be used instead of original env data. When function returns `undefined`
-original data will be used.
+When file `.rnucrc.js` exists in project root it will be loaded when
+`rnuc` CLI is executed. A single function `on_env` will be invoked with env
+data loaded from the file. Object returned from the function will be used
+instead of original env data. When function returns `undefined` original data
+will be used.
+
+```js
+module.exports = {
+  on_env: async function (env) {
+    // this will be invoked with data of loaded env file
+  },
+};
+```
 
 ## Javascript
 
