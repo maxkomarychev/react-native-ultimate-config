@@ -15,7 +15,8 @@
     "react-native": "0.62.0"
   },
   "resolutions": {
-    "logkitty": "^0.7.1"
+    "logkitty": "^0.7.1",
+    "lodash": "^4.17.19"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
