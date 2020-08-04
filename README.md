@@ -2,7 +2,9 @@
 
 _Config that works_
 
-![npm](https://img.shields.io/npm/dw/react-native-ultimate-config)
+[![NPM](https://img.shields.io/npm/l/react-native-ultimate-config)](https://www.npmjs.com/package/react-native-ultimate-config)
+[![npm](https://img.shields.io/npm/v/react-native-ultimate-config?color=green&label=version)](https://www.npmjs.com/package/react-native-ultimate-config)
+[![npm](https://img.shields.io/npm/dw/react-native-ultimate-config?color=green)](https://www.npmjs.com/package/react-native-ultimate-config)
 
 _Project generated with https://github.com/brodybits/create-react-native-module_
 
