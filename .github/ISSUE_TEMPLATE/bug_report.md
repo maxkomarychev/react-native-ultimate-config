@@ -43,6 +43,17 @@ is better.
 - [ ] I am using `react-native-ultimate-config` within monorepo managed with
       Lerna or Yarn Workspaces [Monorepo support](../../docs/api.md#advanced-options-for-monorepo)
 
+## Env file
+
+- [ ] I am using dotenv file as a source for variables
+- [ ] I am using YAML file as a source for variables
+
+### Example of env file that is causing problems
+
+```
+❗PROVIDE EXAMPLE OF ENV FILE
+```
+
 ## OS
 
 - [ ] ios
