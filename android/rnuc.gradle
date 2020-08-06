@@ -12,13 +12,11 @@ buildscript {
 
 
 def readYaml(yamlPath) {
-    def cfg = new org.yaml.snakeyaml.Yaml()
-        .load(new File(
-                yamlPath
-                .toAbsolutePath()
-                .toString()
-                ).newInputStream() 
-            )
+    def yamlFile = new File(yamlPath.toAbsolutePath().toString())
+    if (!yamlFile.exists()) {
+        throw new GradleException("yaml file at path ${yamlPath.toAbsolutePath().toString()} does not exist")
+    }
+    def cfg = new org.yaml.snakeyaml.Yaml().load(yamlFile.newInputStream())
     if (
         cfg instanceof String
     || cfg instanceof Integer
