@@ -25,6 +25,14 @@ function escape(value) {
   }
 }
 
+function xcconfig_format(value) {
+  if (is_string(value)) {
+    return value.replace(/\/\//gm, '\/$()\/');
+  } else {
+    return value;
+  }
+}
+
 function render_template(template_name, data) {
   const template_path = path.join(
     __dirname,
@@ -36,6 +44,7 @@ function render_template(template_name, data) {
   handlebars.registerHelper("isString", is_string);
   handlebars.registerHelper("isNumber", is_number);
   handlebars.registerHelper("escape", escape);
+  handlebars.registerHelper("xcconfigFormat", xcconfig_format);
   const parsed_template = handlebars.compile(template_string);
   const rendered = parsed_template(data);
   return rendered;
