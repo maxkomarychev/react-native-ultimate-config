@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.4](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.2.3...v3.2.4) (2020-09-27)
+
+
+### Bug Fixes
+
+* prevent comments in xcconfig ([#40](https://github.com/maxkomarychev/react-native-ultimate-config/issues/40)) ([0a8e76d](https://github.com/maxkomarychev/react-native-ultimate-config/commit/0a8e76d8992dfdb5b68fe6fed45db51e27f8ce91))
+
 ### [3.2.3](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.2.2...v3.2.3) (2020-08-06)
 
 
