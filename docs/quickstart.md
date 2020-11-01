@@ -46,7 +46,7 @@ For advanced setup please refer to [cookbook](./cookbook.md)
 
    1. ios
 
-      1. run ```pod install```in folder `ios`
+      1. run `pod install`in folder `ios`
       1. open workspace
       1. open Finder in folder `ios`
       1. drag'n'drop generated file into project
@@ -93,10 +93,13 @@ For advanced setup please refer to [cookbook](./cookbook.md)
          ```
 
       3. If you are using ProGuard:
-         in `proguard-rules.pro` add
+         in `proguard-rules.pro` add the following snippet replacing `MY_PACKAGE`
+         with package identifier of yours, e.g. `com.mypackage.BuildConfig`.
+
+         ❗keep `<fields>` as is. it SHALL NOT be replaced with actual field names
 
          ```java
-         -keepclassmembers class <APPLICATION ID>.BuildConfig {
+         -keepclassmembers class MY_PACKAGE.BuildConfig {
             public static <fields>;
          }
          ```
