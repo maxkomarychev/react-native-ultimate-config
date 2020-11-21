@@ -60,10 +60,10 @@
     "react-native": "^0.61.5"
   },
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "handlebars": "^4.7.6",
-    "js-yaml": "^3.13.1",
-    "yargs": "^15.3.1"
+    "dotenv": "^8",
+    "handlebars": "^4",
+    "js-yaml": "^3",
+    "yargs": "^16"
   },
   "resolutions": {
     "logkitty": "^0.7.1",
