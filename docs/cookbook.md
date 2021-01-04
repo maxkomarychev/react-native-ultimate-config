@@ -13,6 +13,7 @@ typical tasks
 1. [Using multiple schemes (ios)](#using-multiple-schemes-ios)
 1. [Using multiple flavors (android)](#using-multiple-flavors-android)
 1. [Generate fastlane dotenv](#generate-fastlane-dotenv)
+1. [Override native values in js](#override-native-values-in-js)
 
 ## Application name
 
@@ -236,3 +237,22 @@ Assuming you want to support multiple flavors of the app: "dev" and "staging".
      },
    };
    ```
+
+## Override native values in js
+
+Sometimes you may need to make config values generated in javascript as
+opposed to consuming them from native. For example if you want to benefit
+from fast code reload (without recompilation) with metro or to use
+over-the-air deploys with services like codepush.
+
+This can be achieved with rc config: `js_override`:
+
+```js
+// rnuc.rc
+module.exports = {
+  js_override: true,
+};
+```
+
+In this case `react-native-ultimate-config` will embed all config values
+into javascript code overriding values from native.

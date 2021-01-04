@@ -1,6 +1,6 @@
 const mockWriteFile = jest.fn();
 jest.mock("fs", () => ({ writeFileSync: mockWriteFile }));
-const write_env = require("../write-env");
+const write_env = require("./write-env");
 
 describe("load-env", () => {
   beforeEach(() => {

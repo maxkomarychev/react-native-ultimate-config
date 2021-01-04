@@ -1,0 +1,16 @@
+const RN = require("react-native");
+
+const IOS_DATA = {{{toJSON @root.ios}}}
+
+const ANDROID_DATA = {{{toJSON @root.android}}}
+
+module.exports = {
+{{#each @root.ios}}
+  get {{{@key}}}() {
+    return RN.Platform.select({
+      ios: IOS_DATA["{{{@key}}}"],
+      android: ANDROID_DATA["{{{@key}}}"],
+    });
+  },
+{{/each}}
+}

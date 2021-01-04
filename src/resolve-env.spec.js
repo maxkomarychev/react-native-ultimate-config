@@ -1,4 +1,4 @@
-const resolve_env = require("../resolve-env");
+const resolve_env = require("./resolve-env");
 
 describe("resolve_env", () => {
   const original = { original: "data" };

@@ -1,4 +1,4 @@
-const flatten = require("../flatten");
+const flatten = require("./flatten");
 
 describe("flatten", () => {
   it("flattens config per platform", () => {

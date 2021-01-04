@@ -10,6 +10,6 @@ module.exports = async function (project_root, lib_root, env_file, rc) {
     ios: flatten(env, "ios"),
     android: flatten(env, "android"),
   };
-  const files_to_write = render_env(project_root, lib_root, flat);
+  const files_to_write = render_env(project_root, lib_root, flat, rc);
   write_env(files_to_write);
 };

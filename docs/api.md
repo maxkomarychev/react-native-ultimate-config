@@ -5,7 +5,9 @@ Table of contents
 1. [Files](#files)
 1. [CLI](#cli)
    1. [Advanced options for monorepo](#advanced-options-for-monorepo)
-   1. [Hooks](#hooks)
+   1. [RC file](#rc-file)
+      1. [Hooks](#hooks)
+      1. [JS override](#js-override)
 1. [Javascript](#javascript)
 1. [Typescript](#typescript)
 1. [ios](#ios)
@@ -78,6 +80,8 @@ When injecting config for `my_app` the command should be:
 yarn rnuc --project-root . --lib-root ../../node_modules/react-native-ultimate-config .env
 ```
 
+## RC file
+
 ### Hooks
 
 When file `.rnucrc.js` exists in project root it will be loaded when
@@ -91,6 +95,16 @@ module.exports = {
   on_env: async function (env) {
     // this will be invoked with data of loaded env file
   },
+};
+```
+
+### JS override
+
+When rc file contains boolean field `js_override` `react-native-ultimate-config` will generate js code overriding values passed from native code. [Scenarios why this may be needed](./cookbook.md#override-native-values-in-js)
+
+```js
+module.exports = {
+  js_override: true,
 };
 ```
 

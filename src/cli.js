@@ -16,9 +16,9 @@ module.exports = async function () {
 
   const env_file = yargs.argv._[0];
 
-  const abc = path.resolve(project_root, ".rnucrc.js");
-  if (fs.existsSync(abc)) {
-    const rc = require(abc);
+  const rc_file = path.resolve(project_root, ".rnucrc.js");
+  if (fs.existsSync(rc_file)) {
+    const rc = require(rc_file);
     await main(project_root, lib_root, env_file, rc);
   } else {
     await main(project_root, lib_root, env_file);

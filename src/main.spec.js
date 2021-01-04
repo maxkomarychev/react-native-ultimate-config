@@ -1,55 +1,22 @@
-const cp = require("child_process");
-const fs = require("fs");
-const path = require("path");
-
 const mock_load_env = jest.fn();
-jest.doMock("../load-env", () => mock_load_env);
+jest.doMock("./load-env", () => mock_load_env);
 const mock_render_env = jest.fn();
-jest.doMock("../render-env", () => mock_render_env);
+jest.doMock("./render-env", () => mock_render_env);
 const mock_write_env = jest.fn();
-jest.doMock("../write-env", () => mock_write_env);
+jest.doMock("./write-env", () => mock_write_env);
 const mock_flatten = jest.fn();
-jest.doMock("../flatten", () => mock_flatten);
+jest.doMock("./flatten", () => mock_flatten);
 
-const main = require("../main");
+const main = require("./main");
 
 const files_to_assert = [
   "ios/rnuc.xcconfig",
   "node_modules/react-native-ultimate-config/ios/ConfigValues.h",
   "node_modules/react-native-ultimate-config/android/rnuc.yaml",
   "node_modules/react-native-ultimate-config/index.d.ts",
+  "node_modules/react-native-ultimate-config/override.js",
 ];
-
-describe.each`
-  extension  | env_test_content
-  ${""}      | ${"hello=world"}
-  ${".yaml"} | ${"hello: world"}
-  ${".yml"}  | ${"hello: world"}
-`("test codegen", ({ extension, env_test_content }) => {
-  let project_root;
-  beforeAll(() => {
-    project_root = path.join(process.cwd(), fs.mkdtempSync("rnuc-jest"));
-    for (const file_path of files_to_assert) {
-      const { dir } = path.parse(file_path);
-      const folder = path.join(project_root, dir);
-      fs.mkdirSync(folder, { recursive: true });
-    }
-  });
-  afterAll(() => {
-    fs.rmdirSync(project_root, { recursive: true });
-  });
-  it.each(files_to_assert.map((k) => [k]))(
-    "creates file at path %s",
-    (file_path) => {
-      const env_file_path = path.join(project_root, `.env${extension}`);
-      fs.writeFileSync(env_file_path, env_test_content);
-      cp.execFileSync(path.join(process.cwd(), "bin.js"), [env_file_path], {
-        cwd: project_root,
-      });
-      expect(fs.existsSync(path.join(project_root, file_path))).toEqual(true);
-    }
-  );
-});
+exports.files_to_assert = files_to_assert;
 
 describe("main", () => {
   it("execute render with paths", async () => {
@@ -73,7 +40,8 @@ describe("main", () => {
       {
         ios: { data: true, ios: true },
         android: { data: true, android: true },
-      }
+      },
+      undefined
     );
     expect(mock_write_env).toHaveBeenCalledWith({ hello: "world" });
   });

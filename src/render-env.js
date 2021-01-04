@@ -27,10 +27,14 @@ function escape(value) {
 
 function xcconfig_format(value) {
   if (is_string(value)) {
-    return value.replace(/\/\//gm, '\/$()\/');
+    return value.replace(/\/\//gm, "/$()/");
   } else {
     return value;
   }
+}
+
+function to_json(value) {
+  return JSON.stringify(value, null, 2);
 }
 
 function render_template(template_name, data) {
@@ -45,12 +49,13 @@ function render_template(template_name, data) {
   handlebars.registerHelper("isNumber", is_number);
   handlebars.registerHelper("escape", escape);
   handlebars.registerHelper("xcconfigFormat", xcconfig_format);
+  handlebars.registerHelper("toJSON", to_json);
   const parsed_template = handlebars.compile(template_string);
   const rendered = parsed_template(data);
   return rendered;
 }
 
-module.exports = function render_env(project_root, lib_root, env) {
+module.exports = function render_env(project_root, lib_root, env, rc) {
   const { ios, android } = env;
   const map = {
     [path.join(lib_root, "index.d.ts")]: render_template("index.d.ts", ios),
@@ -68,5 +73,16 @@ module.exports = function render_env(project_root, lib_root, env) {
       `${config_file_name}.xcconfig`
     )]: render_template("rnuc.xcconfig", ios),
   };
+  if (rc && typeof rc.js_override === "boolean" && rc.js_override) {
+    map[path.join(lib_root, "override.js")] = render_template("override.js", {
+      ios,
+      android,
+    });
+  } else {
+    map[path.join(lib_root, "override.js")] = render_template("override.js", {
+      ios: {},
+      android: {},
+    });
+  }
   return map;
 };
