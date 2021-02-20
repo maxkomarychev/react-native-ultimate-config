@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.2.7...v3.3.0) (2021-02-20)
+
+
+### Features
+
+* allow overrides in js ([50383b9](https://github.com/maxkomarychev/react-native-ultimate-config/commit/50383b9999876a1f59be6aa7bb55162a77d462c8))
+
 ### [3.2.7](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.2.6...v3.2.7) (2020-12-21)
 
 ### [3.2.6](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.2.5...v3.2.6) (2020-12-14)
