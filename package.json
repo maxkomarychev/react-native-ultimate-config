@@ -1,72 +1,15 @@
 {
-  "name": "react-native-ultimate-config",
-  "title": "React Native Ultimate Config",
-  "version": "3.3.1",
-  "description": "Config that works",
-  "main": "index.js",
-  "files": [
-    "src/*.js",
-    "src/templates",
-    "ios/UltimateConfig.{h,m}",
-    "ios/ConfigValues.h",
-    "ios/UltimateConfig.xcodeproj/project.pbxproj",
-    "android/src",
-    "android/build.gradle",
-    "android/rnuc.gradle",
-    "react-native-ultimate-config.podspec"
-  ],
+  "name": "root",
+  "private": true,
   "scripts": {
-    "test": "jest",
-    "prepack": "echo '#error \"invoke bin.js with env file before compiling native project\"' > ios/ConfigValues.h"
-  },
-  "bin": {
-    "rnuc": "./bin.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/maxkomarychev/react-native-ultimate-config.git",
-    "baseUrl": "https://github.com/maxkomarychev/react-native-ultimate-config"
-  },
-  "keywords": [
-    "react-native",
-    "ios",
-    "android",
-    "12factor",
-    "12factorapp",
-    "dotenv",
-    "env",
-    "environment",
-    "config",
-    "xcconfig",
-    "gradle",
-    "objective-c",
-    "java",
-    "typescript"
-  ],
-  "author": {
-    "name": "Max Komarychev",
-    "email": "maxkomarychev@gmail.com"
-  },
-  "license": "MIT",
-  "licenseFilename": "LICENSE",
-  "readmeFilename": "README.md",
-  "peerDependencies": {
-    "react": "^16.8.1",
-    "react-native": ">=0.60.0-rc.0 <1.0.x"
+    "test": "lerna run --scope=react-native-ultimate-config test",
+    "pods": "lerna exec --scope=example '(cd ios; pod install)'",
+    "example:env": "lerna run --scope=example rnuc -- .env",
+    "example:start": "lerna run --scope=example start",
+    "example:ios": "lerna run --scope=example ios",
+    "example:android": "lerna run --scope=example android"
   },
   "devDependencies": {
-    "jest": "^25.3.0",
-    "react": "^16.9.0",
-    "react-native": "^0.61.5"
-  },
-  "dependencies": {
-    "dotenv": "^8",
-    "handlebars": "^4",
-    "js-yaml": "^3",
-    "yargs": "^16"
-  },
-  "resolutions": {
-    "logkitty": "^0.7.1",
-    "lodash": "^4.17.19"
+    "lerna": "^3.22.1"
   }
 }
