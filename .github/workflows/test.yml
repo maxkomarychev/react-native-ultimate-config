@@ -11,5 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: install dependencies
-        run: cd packages/react-native-ultimate-config; npm install
+        run: npm install
+        working-directory:  packages/react-native-ultimate-config
       - run: npm test
+        working-directory:  packages/react-native-ultimate-config

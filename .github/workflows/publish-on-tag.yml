@@ -13,4 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-      - run: cd packages/react-native-ultimate-config; npm publish
+        working-directory: packages/react-native-ultimate-config
+      - run: npm publish
+        working-directory: packages/react-native-ultimate-config
