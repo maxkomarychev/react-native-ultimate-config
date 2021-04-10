@@ -1,0 +1,4 @@
+# Codegen
+index.d.ts
+android/rnuc.yaml
+!src/__tests__/outputs/
