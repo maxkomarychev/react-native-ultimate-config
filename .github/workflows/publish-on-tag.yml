@@ -14,5 +14,6 @@ jobs:
       - uses: actions/checkout@v2
       - run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
         working-directory: packages/react-native-ultimate-config
+      - run: cp -r LICENSE README.md docs packages/react-native-ultimate-config
       - run: npm publish
         working-directory: packages/react-native-ultimate-config
