@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.4](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.3.3...v3.3.4) (2021-04-16)
+
+
+### Bug Fixes
+
+* **ci:** fix publishing of README ([5f36ea9](https://github.com/maxkomarychev/react-native-ultimate-config/commit/5f36ea92159128dd450b4dfaf248d5a14577450b))
+
 ### [3.3.3](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.3.2...v3.3.3) (2021-04-10)
 
 ### [3.3.2](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.3.1...v3.3.2) (2021-04-10)
