@@ -104,7 +104,7 @@ For advanced setup please refer to [cookbook](./cookbook.md)
          }
          ```
 
-1) save changes made to navite projects `.xcodeproj` file and `build.gradle`.
+1) save changes made to native projects `.xcodeproj` file and `build.gradle`.
    **DO NOT COMMMIT** `rnuc.*` files.
 
 1) from now on every time you need to switch environment just run
