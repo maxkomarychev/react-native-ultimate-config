@@ -7,7 +7,9 @@
     "example:env": "lerna run --scope=example rnuc -- .env",
     "example:start": "lerna run --scope=example start",
     "example:ios": "lerna run --scope=example ios",
-    "example:android": "lerna run --scope=example android"
+    "example:android": "lerna run --scope=example android",
+    "example:web:env": "lerna run --scope=example-web rnuc -- .env",
+    "example:web:start": "lerna run --scope=example-web start"
   },
   "devDependencies": {
     "lerna": "^3.22.1"

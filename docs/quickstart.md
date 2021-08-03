@@ -104,9 +104,18 @@ For advanced setup please refer to [cookbook](./cookbook.md)
          }
          ```
 
-1) save changes made to native projects `.xcodeproj` file and `build.gradle`.
+1. save changes made to native projects `.xcodeproj` file and `build.gradle`.
    **DO NOT COMMMIT** `rnuc.*` files.
 
-1) from now on every time you need to switch environment just run
-   `npm run rnuc <dotenv file>` or `yarn rnuc <dotenv file>` and rerun native project with
-   `react-native run-{ios,android}`
+1. Configure web projects (optional, one-off setup)
+
+   You can import your config into a web project as well (e.g. a project using [React Native for Web](https://github.com/necolas/react-native-web)). `react-native-ultimate-config` vends a web-friendly CommonJS module using the [package.json browser field](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#browser). Most web bundlers support this with minimal effort:
+
+   - **Webpack** - No configuration needed. If you choose to set [target](https://webpack.js.org/configuration/target/) it must include `"web"`.
+   - **Rollup** - Install [@rollup/plugin-node-resolve](https://www.npmjs.com/package/@rollup/plugin-node-resolve) and set `browser` to `true`.
+   - **Parcel** - No configuration needed.
+   - **Browserify** - No configuration needed.
+   
+1. from now on every time you need to switch environment just run
+   `npm run rnuc <dotenv file>` or `yarn rnuc <dotenv file>` and rerun your native project (with
+   `react-native run-{ios,android}`) or web project (with your web bundler of choice)
