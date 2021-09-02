@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.4.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.3.4...v3.4.0) (2021-09-02)
+
+
+### Features
+
+* Web support ([#64](https://github.com/maxkomarychev/react-native-ultimate-config/issues/64)) ([cf65c76](https://github.com/maxkomarychev/react-native-ultimate-config/commit/cf65c764b55fb7d4a17740296a6a61d611732047)), closes [#61](https://github.com/maxkomarychev/react-native-ultimate-config/issues/61)
+
+
+### Bug Fixes
+
+* **ci:** fix triggers for unittests ([4139f95](https://github.com/maxkomarychev/react-native-ultimate-config/commit/4139f95f58b91884008a3fdeadf41c558563e2ef))
+* upgrade vulnerable dependency - handlebars ([018a018](https://github.com/maxkomarychev/react-native-ultimate-config/commit/018a01804ba8349b2c492a4c74111b135c8d82fb))
+
 ### [3.3.4](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.3.3...v3.3.4) (2021-04-16)
 
 

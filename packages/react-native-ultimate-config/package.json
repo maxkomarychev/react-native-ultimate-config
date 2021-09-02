@@ -1,7 +1,7 @@
 {
   "name": "react-native-ultimate-config",
   "title": "React Native Ultimate Config",
-  "version": "3.3.4",
+  "version": "3.4.0",
   "description": "Config that works",
   "main": "index.js",
   "browser": "index.web.js",
