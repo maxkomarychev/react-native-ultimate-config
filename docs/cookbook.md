@@ -256,3 +256,7 @@ module.exports = {
 
 In this case `react-native-ultimate-config` will embed all config values
 into javascript code overriding values from native.
+
+NOTE: This feature does not apply to web projects which do not use native values
+either way. See the [quickstart guide](./quickstart.md) for help configuring
+`react-native-ultimate-config` for use in a web project.

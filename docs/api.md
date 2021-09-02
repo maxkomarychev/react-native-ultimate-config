@@ -48,6 +48,7 @@ TEST: 100
 API_KEY:
   ios: abcdef
   android: tuvxyz
+  web: 123456
 ```
 
 ☝ both keys must exist in the mapping
@@ -231,6 +232,20 @@ public class MainActivity extends ReactActivity {
 }
 
 ```
+
+## Web
+
+Variables are exported as an object from `react-native-ultimate-config`:
+
+```javascript
+// import module
+import config from "react-native-ultimate-config";
+
+// access variables
+config.MY_CONFIG;
+```
+
+This functionality relies on the [package.json browser field](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#browser), see the [quickstart guide](./quickstart.md) for details.
 
 ## Note about types
 

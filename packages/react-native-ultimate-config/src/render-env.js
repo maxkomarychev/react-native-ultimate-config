@@ -56,9 +56,10 @@ function render_template(template_name, data) {
 }
 
 module.exports = function render_env(project_root, lib_root, env, rc) {
-  const { ios, android } = env;
+  const { ios, android, web } = env;
   const map = {
     [path.join(lib_root, "index.d.ts")]: render_template("index.d.ts", ios),
+    [path.join(lib_root, "index.web.js")]: render_template("index.web.js", web),
     [path.join(lib_root, "ios", `${code_file_name}.h`)]: render_template(
       "ConfigValues.h",
       ios
@@ -67,12 +68,13 @@ module.exports = function render_env(project_root, lib_root, env, rc) {
       "rnuc.yaml",
       android
     ),
-    [path.join(
-      project_root,
-      "ios",
-      `${config_file_name}.xcconfig`
-    )]: render_template("rnuc.xcconfig", ios),
   };
+  // Only save xcconfig if the project contains an ios folder. All react-native
+  // apps will contain this folder, but some react-native-web apps may not.
+  if (fs.existsSync(path.join(project_root, "ios"))) {
+    map[path.join(project_root, "ios", `${config_file_name}.xcconfig`)] =
+      render_template("rnuc.xcconfig", ios)
+  }
   if (rc && typeof rc.js_override === "boolean" && rc.js_override) {
     map[path.join(lib_root, "override.js")] = render_template("override.js", {
       ios,

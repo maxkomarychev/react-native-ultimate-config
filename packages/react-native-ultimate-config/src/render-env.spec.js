@@ -7,6 +7,7 @@ const PROJECT_ROOT = "/home/user1/my_project";
 const LIB_ROOT =
   "/home/user1/my_project/node_modules/react-native-ultimate-config";
 const D_TS_FILE = `${LIB_ROOT}/index.d.ts`;
+const WEB_FILE = `${LIB_ROOT}/index.web.js`;
 const JS_OVERRIDE_FILE = `${LIB_ROOT}/override.js`;
 const GRADLE_YAML_PATH = `${LIB_ROOT}/android/rnuc.yaml`;
 const H_VALUES_FILE = `${LIB_ROOT}/ios/ConfigValues.h`;
@@ -28,22 +29,38 @@ const CONFIG_ANDROID = {
   ...CONFIG_DEFAULT,
   PER_PLATFORM: "world",
 };
+const CONFIG_WEB = {
+  ...CONFIG_DEFAULT,
+  PER_PLATFORM: "goodbye",
+};
+
 describe("render_env default", () => {
   let map = undefined;
   beforeEach(() => {
     map = render_env(PROJECT_ROOT, LIB_ROOT, {
       ios: CONFIG_IOS,
       android: CONFIG_ANDROID,
+      web: CONFIG_WEB,
     });
   });
+  beforeAll(() => {
+    // Mock existsSync to return "true" so that the check for a PROJECT_ROOT/ios
+    // directory succeeds and ios project files are generated
+    jest.spyOn(fs, "existsSync");
+    fs.existsSync.mockReturnValue(true);
+  })
+  afterAll(() => {
+    fs.existsSync.mockRestore();
+  })
 
-  it("paths has lenght of 5", () => {
+  it("paths has length of 6", () => {
     const paths = Object.keys(map);
-    expect(paths.length).toEqual(5);
+    expect(paths.length).toEqual(6);
   });
   it("returns map of files to write against specifed roots", () => {
     const paths = Object.keys(map);
     expect(paths).toContain(D_TS_FILE);
+    expect(paths).toContain(WEB_FILE);
     expect(paths).toContain(GRADLE_YAML_PATH);
     expect(paths).toContain(H_VALUES_FILE);
     expect(paths).toContain(XCCONFIG_FILE);
@@ -52,6 +69,7 @@ describe("render_env default", () => {
   it.each`
     expected_path       | test_file
     ${JS_OVERRIDE_FILE} | ${"override_empty.js"}
+    ${WEB_FILE}         | ${"index.web.js"}
     ${D_TS_FILE}        | ${"index.d.ts"}
     ${GRADLE_YAML_PATH} | ${"rnuc.yaml"}
     ${H_VALUES_FILE}    | ${"ConfigValues.h"}
@@ -72,17 +90,28 @@ describe("render_env with js override", () => {
       {
         ios: CONFIG_IOS,
         android: CONFIG_ANDROID,
+        web: CONFIG_WEB,
       },
       { js_override: true }
     );
   });
+  beforeAll(() => {
+    // Mock existsSync to return "true" so that the check for a PROJECT_ROOT/ios
+    // directory succeeds and ios project files are generated
+    jest.spyOn(fs, "existsSync");
+    fs.existsSync.mockReturnValue(true);
+  })
+  afterAll(() => {
+    fs.existsSync.mockRestore();
+  })
 
-  it("paths has lenght of 5", () => {
+  it("paths has length of 6", () => {
     const paths = Object.keys(map);
-    expect(paths.length).toEqual(5);
+    expect(paths.length).toEqual(6);
   });
   it.each([
     [D_TS_FILE],
+    [WEB_FILE],
     [JS_OVERRIDE_FILE],
     [GRADLE_YAML_PATH],
     [H_VALUES_FILE],
@@ -90,6 +119,7 @@ describe("render_env with js override", () => {
   ])("map of files contains path %s", () => {
     const paths = Object.keys(map);
     expect(paths).toContain(D_TS_FILE);
+    expect(paths).toContain(WEB_FILE);
     expect(paths).toContain(JS_OVERRIDE_FILE);
     expect(paths).toContain(GRADLE_YAML_PATH);
     expect(paths).toContain(H_VALUES_FILE);
@@ -98,6 +128,7 @@ describe("render_env with js override", () => {
   it.each`
     expected_path       | test_file
     ${D_TS_FILE}        | ${"index.d.ts"}
+    ${WEB_FILE}         | ${"index.web.js"}
     ${GRADLE_YAML_PATH} | ${"rnuc.yaml"}
     ${H_VALUES_FILE}    | ${"ConfigValues.h"}
     ${XCCONFIG_FILE}    | ${"rnuc.xcconfig"}

@@ -3,4 +3,5 @@ index.d.ts
 android/rnuc.yaml
 ios/ConfigValues.h
 override.js
-!src/__tests__/outputs/
+index.web.js
+!src/test_outputs/*
