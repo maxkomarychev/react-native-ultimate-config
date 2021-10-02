@@ -4,6 +4,7 @@
   "version": "3.4.1",
   "description": "Config that works",
   "main": "index.js",
+  "react-native": "index.js",
   "browser": "index.web.js",
   "files": [
     "src/*.js",
