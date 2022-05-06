@@ -8,6 +8,13 @@ _Config that works_
 
 _Project generated with https://github.com/brodybits/create-react-native-module_
 
+## Suport of gradle
+
+| react-native-ultimate-config | gradle |
+| ---------------------------- | ------ |
+| ^3                           | <=6    |
+| >4                           | 7      |
+
 ## TL;DR usage
 
 1. install
