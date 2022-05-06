@@ -58,7 +58,7 @@
   "devDependencies": {
     "jest": "^26",
     "react": "^16.9.0",
-    "react-native": "0.64.0"
+    "react-native": "0.64.1"
   },
   "dependencies": {
     "dotenv": "^8",
