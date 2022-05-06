@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.4.2...v4.0.0) (2022-05-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* Gradle 6 will not be supported.
+
+### Features
+
+* support Gradle 7+ ([48ce3c9](https://github.com/maxkomarychev/react-native-ultimate-config/commit/48ce3c928f3d9fc58eacc947e7bac4224fdf69fd))
+
 ### [3.4.2](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.4.1...v3.4.2) (2021-10-04)
 
 
