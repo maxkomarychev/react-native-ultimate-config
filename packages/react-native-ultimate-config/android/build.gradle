@@ -9,6 +9,30 @@ buildscript {
   }
 }
 
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+def resolveReactNativeDirectory() {
+    def reactNativeLocation = safeExtGet("REACT_NATIVE_NODE_MODULES_DIR", null)
+    if (reactNativeLocation != null) {
+        return file(reactNativeLocation)
+    }
+
+    // monorepo workaround
+    // react-native can be hoisted or in project's own node_modules
+    def reactNativeFromProjectNodeModules = file("${rootProject.projectDir}/../node_modules/react-native")
+    if (reactNativeFromProjectNodeModules.exists()) {
+        return reactNativeFromProjectNodeModules
+    }
+
+    throw new Exception(
+        "[react-native-ultimate-config] Unable to resolve react-native location in " +
+            "node_modules. You should add project extension property (in app/build.gradle) " +
+            "`REACT_NATIVE_NODE_MODULES_DIR` with path to react-native."
+    )
+}
+
 def isNewArchitectureEnabled() {
   return rootProject.hasProperty("newArchEnabled") && rootProject.getProperty("newArchEnabled") == "true"
 }
@@ -26,6 +50,14 @@ def getExtOrDefault(name) {
 def getExtOrIntegerDefault(name) {
   return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties["UltimateConfig_" + name]).toInteger()
 }
+
+def REACT_NATIVE_DIR = resolveReactNativeDirectory()
+
+def reactProperties = new Properties()
+file("$REACT_NATIVE_DIR/ReactAndroid/gradle.properties").withInputStream { reactProperties.load(it) }
+
+def REACT_NATIVE_VERSION = reactProperties.getProperty("VERSION_NAME")
+def REACT_NATIVE_MINOR_VERSION = REACT_NATIVE_VERSION.startsWith("0.0.0-") ? 1000 : REACT_NATIVE_VERSION.split("\\.")[1].toInteger()
 
 android {
   compileSdkVersion getExtOrIntegerDefault("compileSdkVersion")
@@ -62,7 +94,11 @@ dependencies {
   // For < 0.71, this will be from the local maven repo
   // For > 0.71, this will be replaced by `com.facebook.react:react-android:$version` by react gradle plugin
   //noinspection GradleDynamicVersion
-  implementation "com.facebook.react:react-native:+"
+  if (REACT_NATIVE_MINOR_VERSION >= 71) {
+    implementation "com.facebook.react:react-android" // version substituted by RNGP
+  } else {
+    implementation 'com.facebook.react:react-native:+' // from node_modules
+  }
 }
 
 if (isNewArchitectureEnabled()) {
