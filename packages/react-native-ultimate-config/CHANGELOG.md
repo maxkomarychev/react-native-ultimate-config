@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0-alpha.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v4.0.0...v4.1.0-alpha.0) (2023-01-22)
+
+
+### Features
+
+* support for both react-native >= 0.71 and < 0.71 versions ([#128](https://github.com/maxkomarychev/react-native-ultimate-config/issues/128)) ([7668721](https://github.com/maxkomarychev/react-native-ultimate-config/commit/7668721a9ff6ef8abe227338fb67ad51e5861542))
+
 ## [4.0.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v3.4.2...v4.0.0) (2022-05-06)
 
 
