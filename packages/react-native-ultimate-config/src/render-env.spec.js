@@ -48,10 +48,10 @@ describe("render_env default", () => {
     // directory succeeds and ios project files are generated
     jest.spyOn(fs, "existsSync");
     fs.existsSync.mockReturnValue(true);
-  })
+  });
   afterAll(() => {
     fs.existsSync.mockRestore();
-  })
+  });
 
   it("paths has length of 6", () => {
     const paths = Object.keys(map);
@@ -100,10 +100,10 @@ describe("render_env with js override", () => {
     // directory succeeds and ios project files are generated
     jest.spyOn(fs, "existsSync");
     fs.existsSync.mockReturnValue(true);
-  })
+  });
   afterAll(() => {
     fs.existsSync.mockRestore();
-  })
+  });
 
   it("paths has length of 6", () => {
     const paths = Object.keys(map);
