@@ -69,10 +69,14 @@ Inject environment data with a single command:
 Considering typical monorepo folder structure:
 
 ```
-- node_modules
-   - react-native-ultimate-config
-- packages
-   - my_app
+|-- package.json
+|-- node_modules
+    |-- react-native-ultimate-config
+|-- packages
+    |-- my_app
+    |-- package1
+    |-- package2
+    |-- packageN
 ```
 
 When injecting config for `my_app` the command should be:

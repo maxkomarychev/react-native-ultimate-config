@@ -56,7 +56,7 @@ Therefore every time this library is updated all files MUST be regenerated using
 1. Access in build tools: [xcode](./docs/api.md#ios), [gradle](./docs/api.md#buildgradle) and [AndroidManifest.xml](./docs/api.md#androidmanifestxml)
 1. [Web support](./docs/api.md#web) (works with React Native for Web)
 1. [Hooks](./docs/api.md#hooks)
-1. [Monorepo support](./docs/api.md#advanced-options-for-monorepo) (yarn workspaces or lerna)
+1. [Monorepo support](./docs/monorepo-tips.md) (yarn workspaces or lerna)
 1. Unit tested with jest
 1. E2E tested with detox
 1. Provides typescript [typings](./docs/api.md#typescript)
