@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v4.1.0-alpha.0...v5.0.0) (2023-01-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* update instructions for monorepo
+
+* update instructions for monorepo ([b8b7ebe](https://github.com/maxkomarychev/react-native-ultimate-config/commit/b8b7ebeaabc1f73911ba0ccf67681281b4abd4cd))
+
 ## [4.1.0-alpha.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v4.0.0...v4.1.0-alpha.0) (2023-01-22)
 
 
