@@ -15,7 +15,7 @@ snipped in your root `build.gradle`:
     ```groovy
     buildscript {
         ext {
-            REACT_NATIVE_NODE_MODULES_DIR = "<prefix>/node_modules/react-native"
+            REACT_NATIVE_NODE_MODULES_DIR = "<prefix>/../node_modules/react-native"
         }
     }
     ```

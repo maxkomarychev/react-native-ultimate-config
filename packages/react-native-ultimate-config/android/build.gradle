@@ -16,12 +16,14 @@ def safeExtGet(prop, fallback) {
 def resolveReactNativeDirectory() {
     def reactNativeLocation = safeExtGet("REACT_NATIVE_NODE_MODULES_DIR", null)
     if (reactNativeLocation != null) {
+        println "Using react-native dir from REACT_NATIVE_NODE_MODULES_DIR:" + reactNativeLocation
         return file(reactNativeLocation)
     }
 
     // monorepo workaround
     // react-native can be hoisted or in project's own node_modules
     def reactNativeFromProjectNodeModules = file("${rootProject.projectDir}/../node_modules/react-native")
+    println "Using react-native dir from default location:" + reactNativeFromProjectNodeModules
     if (reactNativeFromProjectNodeModules.exists()) {
         return reactNativeFromProjectNodeModules
     }
