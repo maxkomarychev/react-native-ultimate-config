@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.1](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v5.0.0...v5.0.1) (2023-01-26)
+
+
+### Bug Fixes
+
+* update docs, improve logging ([7495b4d](https://github.com/maxkomarychev/react-native-ultimate-config/commit/7495b4da4d5a9ca5ca0d3fdca2a59d41b03bd6ff))
+
 ## [5.0.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v4.1.0-alpha.0...v5.0.0) (2023-01-26)
 
 
