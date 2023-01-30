@@ -3,7 +3,7 @@ jest.doMock("fs", () => ({ readFileSync: mockReadFileSync }));
 const mockConfig = jest.fn();
 jest.doMock("dotenv", () => ({ config: mockConfig }));
 const mockYaml = jest.fn();
-jest.doMock("js-yaml", () => ({ safeLoad: mockYaml }));
+jest.doMock("js-yaml", () => ({ load: mockYaml }));
 const load_env = require("./load-env");
 
 describe("load-env", () => {

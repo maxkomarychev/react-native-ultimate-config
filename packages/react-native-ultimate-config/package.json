@@ -64,10 +64,10 @@
     "node": ">= 16.0.0"
   },
   "dependencies": {
-    "dotenv": "^8",
+    "dotenv": "^16",
     "handlebars": "^4.7.7",
-    "js-yaml": "^3",
-    "yargs": "^16"
+    "js-yaml": "^4",
+    "yargs": "^17"
   },
   "resolutions": {
     "logkitty": "^0.7.1",
