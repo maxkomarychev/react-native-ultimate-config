@@ -2,23 +2,28 @@
 
 Table of contents
 
-1. [Files](#files)
-1. [CLI](#cli)
-   1. [Advanced options for monorepo](#advanced-options-for-monorepo)
-   1. [RC file](#rc-file)
-      1. [Hooks](#hooks)
-      1. [JS override](#js-override)
-1. [Javascript](#javascript)
-1. [Typescript](#typescript)
-1. [ios](#ios)
-   1. [Build settings](#build-settings)
-   1. [Info.plist](#infoplist)
-   1. [Objective-C](#objective-c)
-1. [Android](#android)
-   1. [build.gradle](#buildgradle)
-   1. [AndroidManifest.xml](#androidmanifestxml)
-   1. [Java](#java)
-1. [Note about types](#note-about-types)
+- [API](#api)
+  - [Files](#files)
+    - [Per platform values](#per-platform-values)
+  - [CLI](#cli)
+    - [Advanced options for monorepo](#advanced-options-for-monorepo)
+  - [RC file](#rc-file)
+    - [Hooks](#hooks)
+    - [JS override](#js-override)
+  - [Javascript](#javascript)
+  - [Typescript](#typescript)
+  - [ios](#ios)
+    - [Build settings](#build-settings)
+    - [Info.plist](#infoplist)
+    - [Objective-c](#objective-c)
+  - [Android](#android)
+    - [build.gradle](#buildgradle)
+    - [AndroidManifest.xml](#androidmanifestxml)
+      - [a string resource](#a-string-resource)
+      - [a placeholder variable](#a-placeholder-variable)
+    - [Java](#java)
+  - [Web](#web)
+  - [Note about types](#note-about-types)
 
 ## Files
 
@@ -156,7 +161,7 @@ update info plist and observe app name changed:
 ### Objective-c
 
 ```objc
-#import <react-native-ultimate-config/ConfigValues.h>
+#import <react_native_ultimate_config/ConfigValues.h>
 ...
 NSLog(APP_NAME);
 ```
