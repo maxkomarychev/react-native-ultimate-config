@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.1](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v6.0.0...v6.0.1) (2023-09-01)
+
+
+### Bug Fixes
+
+* replace deprecated classifier property ([#136](https://github.com/maxkomarychev/react-native-ultimate-config/issues/136)) ([018161a](https://github.com/maxkomarychev/react-native-ultimate-config/commit/018161a63edd0512260c7dbc467e090d8f945299))
+
 ## [6.0.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v5.0.1...v6.0.0) (2023-01-30)
 
 
