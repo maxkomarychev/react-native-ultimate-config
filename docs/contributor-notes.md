@@ -12,3 +12,8 @@ to symlink rnuc library into example app.
 1. init default env `npm run example:env` or `npm run example:web:env`
 1. start packages `npm run example:start`
 1. run example `npm run example:ios` or `npm run example:android` or `npm run example:web:start`
+
+
+## Publishing new version
+
+`npm run version`

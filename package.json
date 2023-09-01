@@ -9,7 +9,8 @@
     "example:ios": "lerna run --scope=example ios",
     "example:android": "lerna run --scope=example android",
     "example:web:env": "lerna run --scope=example-web rnuc -- .env",
-    "example:web:start": "lerna run --scope=example-web start"
+    "example:web:start": "lerna run --scope=example-web start",
+    "version": "cd packages/react-native-ultimate-config; npx standard-version"
   },
   "devDependencies": {
     "lerna": "^3.22.1"
