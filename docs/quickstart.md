@@ -76,7 +76,7 @@ For advanced setup please refer to [cookbook](./cookbook.md)
 
       2. expose `BuildConfig` to the library
 
-         in `MainApplication.java` add
+         1. in `MainApplication.java` add
 
          ```java
          // import module
@@ -89,6 +89,21 @@ For advanced setup please refer to [cookbook](./cookbook.md)
             super.onCreate();
             ...
             UltimateConfigModule.setBuildConfig(BuildConfig.class); // expose
+         }
+         ```
+  
+         2. in `MainApplication.kt` (React Native v0.73+) add
+
+         ```kotlin
+         // import module
+         import com.reactnativeultimateconfig.UltimateConfigModule
+
+         ...
+
+         override fun onCreate() {
+            super.onCreate()
+            ...
+            UltimateConfigModule.setBuildConfig(BuildConfig::class.java) // expose
          }
          ```
 
