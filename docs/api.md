@@ -156,7 +156,7 @@ update info plist and observe app name changed:
 ### Objective-c
 
 ```objc
-#import <react-native-ultimate-config/ConfigValues.h>
+#import <react_native_ultimate_config/ConfigValues.h>
 ...
 NSLog(APP_NAME);
 ```
