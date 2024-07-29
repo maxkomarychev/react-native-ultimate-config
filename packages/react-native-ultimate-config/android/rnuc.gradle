@@ -14,7 +14,7 @@ buildscript {
 def readYaml(yamlPath) {
     def yamlFile = new File(yamlPath.toAbsolutePath().toString())
     if (!yamlFile.exists()) {
-        throw new GradleException("yaml file at path ${yamlPath.toAbsolutePath().toString()} does not exist")
+        throw new GradleException("yaml file at path ${yamlPath.toAbsolutePath().toString()} does not exist; try running npm run rnuc <env file> or yarn rnuc <env file> to generate the file")
     }
     def cfg = new org.yaml.snakeyaml.Yaml().load(yamlFile.newInputStream())
     if (
