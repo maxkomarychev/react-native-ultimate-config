@@ -5,45 +5,47 @@
  * @format
  */
 
-import React from 'react';
+import {StatusBar, StyleSheet, Text, useColorScheme, View} from 'react-native';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
 
-import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
 import Config from 'react-native-ultimate-config';
 
-function App(): JSX.Element {
+function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  return (
+    <SafeAreaProvider>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <AppContent />
+    </SafeAreaProvider>
+  );
+}
+
+function AppContent() {
+  const safeAreaInsets = useSafeAreaInsets();
+
+  const containerStyle = {
+    ...styles.container,
+    paddingTop: safeAreaInsets.top,
+    paddingBottom: safeAreaInsets.bottom,
+    paddingLeft: safeAreaInsets.left,
+    paddingRight: safeAreaInsets.right,
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Text>{Config.HELLO}</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <View style={containerStyle}>
+      <Text>{Config.HELLO}</Text>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default App;

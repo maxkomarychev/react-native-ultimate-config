@@ -1,15 +1,16 @@
 {
   "name": "react-native-ultimate-config",
   "title": "React Native Ultimate Config",
-  "version": "6.0.1",
+  "version": "7.0.0",
   "description": "Config that works",
   "main": "index.js",
   "react-native": "index.js",
   "browser": "index.web.js",
   "files": [
     "src/*.js",
+    "src/*.ts",
     "src/templates",
-    "ios/UltimateConfig.{h,m}",
+    "ios/UltimateConfig.{h,m,mm}",
     "ios/ConfigValues.h",
     "ios/UltimateConfig.xcodeproj/project.pbxproj",
     "android/src",
@@ -53,15 +54,15 @@
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
   "peerDependencies": {
-    "react-native": ">=0.60.0-rc.0 <1.0.x"
+    "react-native": ">=0.84.1"
   },
   "devDependencies": {
     "jest": "^26",
-    "react": "^18.2.0",
-    "react-native": "0.71.0"
+    "react": "^19.2.3",
+    "react-native": "0.84.1"
   },
   "engines": {
-    "node": ">= 16.0.0"
+    "node": ">= 22.19.0"
   },
   "dependencies": {
     "dotenv": "^16",
@@ -72,5 +73,13 @@
   "resolutions": {
     "logkitty": "^0.7.1",
     "lodash": "^4.17.19"
+  },
+  "codegenConfig": {
+    "name": "UltimateConfigSpec",
+    "type": "modules",
+    "jsSrcsDir": "src",
+    "android": {
+      "javaPackageName": "com.reactnativeultimateconfig"
+    }
   }
 }

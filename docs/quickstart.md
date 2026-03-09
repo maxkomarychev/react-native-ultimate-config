@@ -70,17 +70,17 @@ For advanced setup please refer to [cookbook](./cookbook.md)
          Final code:
 
          ```gradle
-         apply from: "../../node_modules/react-native/react.gradle"
+         apply plugin: "com.facebook.react"
          apply from: "../../node_modules/react-native-ultimate-config/android/rnuc.gradle"
          ```
 
       2. expose `BuildConfig` to the library
 
-         in `MainApplication.java` add
+         in `MainApplication.kt` add
 
-         ```java
+         ```kotlin
          // import module
-         import com.reactnativeultimateconfig.UltimateConfigModule;
+         import com.reactnativeultimateconfig.UltimateConfigModule
 
          ...
 
@@ -88,7 +88,7 @@ For advanced setup please refer to [cookbook](./cookbook.md)
          public void onCreate() {
             super.onCreate();
             ...
-            UltimateConfigModule.setBuildConfig(BuildConfig.class); // expose
+            UltimateConfigModule.setBuildConfig(BuildConfig::class.java) // expose
          }
          ```
 

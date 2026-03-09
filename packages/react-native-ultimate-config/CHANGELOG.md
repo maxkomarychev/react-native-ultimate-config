@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v6.0.1...v7.0.0) (2026-03-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* Dropped support for old architecture
+
+### Features
+
+* turbo module and react-native v0.84.1 ([3a19e1a](https://github.com/maxkomarychev/react-native-ultimate-config/commit/3a19e1a8bfc7199c4c31bc57c92e007f368605f5))
+
 ### [6.0.1](https://github.com/maxkomarychev/react-native-ultimate-config/compare/v6.0.0...v6.0.1) (2023-09-01)
 
 

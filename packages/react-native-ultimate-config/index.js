@@ -1,6 +1,4 @@
-import { NativeModules } from "react-native";
+import NativeUltimateConfig from "./src/NativeUltimateConfig";
 import override from "./override";
 
-const { UltimateConfig } = NativeModules;
-
-export default { ...UltimateConfig, ...override };
+export default { ...NativeUltimateConfig.getConfigValues(), ...override };

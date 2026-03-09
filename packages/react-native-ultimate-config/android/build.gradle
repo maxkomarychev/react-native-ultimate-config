@@ -1,82 +1,58 @@
 buildscript {
+  ext.UltimateConfig = [
+    kotlinVersion: "2.0.21",
+    minSdkVersion: 24,
+    compileSdkVersion: 36,
+    targetSdkVersion: 36
+  ]
+
+  ext.getExtOrDefault = { prop ->
+    if (rootProject.ext.has(prop)) {
+      return rootProject.ext.get(prop)
+    }
+
+    return UltimateConfig[prop]
+  }
+
   repositories {
     google()
     mavenCentral()
   }
 
   dependencies {
-    classpath "com.android.tools.build:gradle:7.2.1"
+    classpath "com.android.tools.build:gradle:8.7.2"
+    // noinspection DifferentKotlinGradleVersion
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${getExtOrDefault('kotlinVersion')}"
   }
 }
 
-def safeExtGet(prop, fallback) {
-    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
-}
 
-def resolveReactNativeDirectory() {
-    def reactNativeLocation = safeExtGet("REACT_NATIVE_NODE_MODULES_DIR", null)
-    if (reactNativeLocation != null) {
-        println "Using react-native dir from REACT_NATIVE_NODE_MODULES_DIR:" + reactNativeLocation
-        return file(reactNativeLocation)
-    }
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
 
-    // monorepo workaround
-    // react-native can be hoisted or in project's own node_modules
-    def reactNativeFromProjectNodeModules = file("${rootProject.projectDir}/../node_modules/react-native")
-    println "Using react-native dir from default location:" + reactNativeFromProjectNodeModules
-    if (reactNativeFromProjectNodeModules.exists()) {
-        return reactNativeFromProjectNodeModules
-    }
-
-    throw new Exception(
-        "[react-native-ultimate-config] Unable to resolve react-native location in " +
-            "node_modules. You should add project extension property (in app/build.gradle) " +
-            "`REACT_NATIVE_NODE_MODULES_DIR` with path to react-native."
-    )
-}
-
-def isNewArchitectureEnabled() {
-  return rootProject.hasProperty("newArchEnabled") && rootProject.getProperty("newArchEnabled") == "true"
-}
-
-apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
-
-if (isNewArchitectureEnabled()) {
-  apply plugin: "com.facebook.react"
-}
-
-def getExtOrDefault(name) {
-  return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties["UltimateConfig_" + name]
-}
-
-def getExtOrIntegerDefault(name) {
-  return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties["UltimateConfig_" + name]).toInteger()
-}
-
-def REACT_NATIVE_DIR = resolveReactNativeDirectory()
-
-def reactProperties = new Properties()
-file("$REACT_NATIVE_DIR/ReactAndroid/gradle.properties").withInputStream { reactProperties.load(it) }
-
-def REACT_NATIVE_VERSION = reactProperties.getProperty("VERSION_NAME")
-def REACT_NATIVE_MINOR_VERSION = REACT_NATIVE_VERSION.startsWith("0.0.0-") ? 1000 : REACT_NATIVE_VERSION.split("\\.")[1].toInteger()
+apply plugin: "com.facebook.react"
 
 android {
-  compileSdkVersion getExtOrIntegerDefault("compileSdkVersion")
+  namespace "com.reactnativeultimateconfig"
+
+  compileSdkVersion getExtOrDefault("compileSdkVersion")
 
   defaultConfig {
-    minSdkVersion getExtOrIntegerDefault("minSdkVersion")
-    targetSdkVersion getExtOrIntegerDefault("targetSdkVersion")
-    buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+    minSdkVersion getExtOrDefault("minSdkVersion")
+    targetSdkVersion getExtOrDefault("targetSdkVersion")
   }
+
+  buildFeatures {
+    buildConfig true
+  }
+
   buildTypes {
     release {
       minifyEnabled false
     }
   }
 
-  lintOptions {
+  lint {
     disable "GradleCompatible"
   }
 
@@ -84,89 +60,8 @@ android {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
   }
-
 }
-
-repositories {
-  mavenCentral()
-  google()
-}
-
 
 dependencies {
-  // For < 0.71, this will be from the local maven repo
-  // For > 0.71, this will be replaced by `com.facebook.react:react-android:$version` by react gradle plugin
-  //noinspection GradleDynamicVersion
-  if (REACT_NATIVE_MINOR_VERSION >= 71) {
-    implementation "com.facebook.react:react-android:+" // version substituted by RNGP
-  } else {
-    implementation 'com.facebook.react:react-native:+' // from node_modules
-  }
-}
-
-if (isNewArchitectureEnabled()) {
-  react {
-    jsRootDir = file("../src/")
-    libraryName = "UltimateConfig"
-    codegenJavaPackageName = "com.reactnativeultimateconfig"
-  }
-}
-
-afterEvaluate { project ->
-  task androidSourcesJar(type: Jar) {
-    archiveClassifier = 'sources'
-    from android.sourceSets.main.java.srcDirs
-    include '**/*.java'
-  }
-
-  android.libraryVariants.all { variant ->
-    def name = variant.name.capitalize()
-    def javaCompileTask = variant.javaCompileProvider.get()
-
-    task "jar${name}"(type: Jar, dependsOn: javaCompileTask) {
-      from javaCompileTask.destinationDir
-    }
-  }
-
-  artifacts {
-    archives androidSourcesJar
-  }
-
-  publishing {
-    publications {
-      maven(MavenPublication) {
-        def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
-
-        pom {
-          name = packageJson.title
-          artifactId = packageJson.name
-          version = packageJson.version
-          group = "com.reactnativeultimateconfig"
-          description packageJson.description
-          url = packageJson.repository.url
-
-          licenses {
-            license {
-              name = packageJson.license
-              url = packageJson.repository.baseUrl + '/blob/master/' + packageJson.licenseFilename
-              distribution = 'repo'
-            }
-          }
-
-          developers {
-            developer {
-              id = packageJson.author.username
-              name = packageJson.author.name
-            }
-          }
-        }
-      }
-    }
-
-    repositories {
-      maven {
-        url "file://${projectDir}/../android/maven"
-      }
-    }
-  }
+  implementation "com.facebook.react:react-android"
 }
